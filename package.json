@@ -5,7 +5,8 @@
   "scripts": {
     "build": "python scripts/optimize-assets.py && python scripts/generate-pages.py && node scripts/build-worker.mjs",
     "db:generate": "drizzle-kit generate",
-    "check": "python scripts/validate-site.py && node --test tests/appointments.test.mjs tests/seo.test.mjs"
+    "check": "python scripts/validate-site.py && node --test tests/appointments.test.mjs tests/seo.test.mjs",
+    "preview": "python scripts/build-preview.py"
   },
   "devDependencies": {
     "drizzle-kit": "^0.31.11",
