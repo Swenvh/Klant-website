@@ -13,7 +13,7 @@ for file in sorted(out.rglob('index.html')):
  route='/'+str(file.parent.relative_to(out)).strip('.')
  if route!='/':route=route.rstrip('/')+'/'
  documents[route]=html.fromstring(file.read_text())
-assert len(documents)==19
+assert len(documents)==22
 titles=set()
 descriptions=set()
 for route,doc in documents.items():
@@ -41,7 +41,7 @@ for route,doc in documents.items():
  assert any(x['@type']=='HousePainter' and x['address']['addressLocality']=='Oldebroek' for x in graph)
  business=next(x for x in graph if x['@type']=='HousePainter')
  assert business['founder']['@id'].endswith('/over-stef/#stef')
- assert len(business['hasOfferCatalog']['itemListElement'])==4
+ assert len(business['hasOfferCatalog']['itemListElement'])==7
  assert any(x['@type']=='Person' and x['name']=='Stef van Ommen' for x in graph)
  visible_questions=doc.xpath('//main//details[summary and .//p]')
  faq_nodes=[x for x in graph if x['@type']=='FAQPage']

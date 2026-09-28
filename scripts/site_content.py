@@ -26,7 +26,28 @@ SERVICE_COPY = {
   'paragraph': 'Wilt u iets anders, maar weet u nog niet welke kleur? We bespreken de sfeer die u zoekt, de kleuren van uw meubels en de hoeveelheid daglicht. Ook kijken we naar een matte of glanzende afwerking.',
   'preparation': 'Verzamel gerust enkele voorbeelden die u mooi vindt. Bekijk een kleurstaal in de ruimte zelf, overdag en bij kunstlicht. Waar nodig bespreken we een proefvlak voordat u een definitieve keuze maakt.',
   'question': 'Moet ik de kleur al weten bij mijn aanvraag?',
-  'answer': 'Nee. Vertel wat u wilt laten schilderen en welke uitstraling u zoekt. De kleur en afwerking kunnen we daarna samen bespreken.'}
+  'answer': 'Nee. Vertel wat u wilt laten schilderen en welke uitstraling u zoekt. De kleur en afwerking kunnen we daarna samen bespreken.'},
+ 'lakwerk': {
+  'summary': 'Een gladde, slijtvaste afwerking voor deuren, kozijnen en trappen.',
+  'heading': 'Een strak resultaat begint bij de voorbereiding',
+  'paragraph': 'Lakwerk ziet u van dichtbij en raakt u dagelijks aan. Deuren, kozijnen, trappen en leuningen krijgen daarom een afwerking die glad oogt en tegen gebruik kan. We bespreken welke onderdelen u wilt laten lakken en welke glansgraad bij uw interieur past.',
+  'preparation': 'Voor een strak resultaat wordt het bestaande werk eerst ontvet, geschuurd en waar nodig gegrond en bijgewerkt. We spreken af welke deuren en ruimtes tijdens het drogen niet gebruikt kunnen worden, zodat u daar rekening mee kunt houden.',
+  'question': 'Kan ik mijn trap blijven gebruiken tijdens het lakken?',
+  'answer': 'Dat bespreken we vooraf. Lak heeft tijd nodig om te drogen en uit te harden. Afhankelijk van uw situatie kan een trap bijvoorbeeld in delen worden gelakt, zodat u erlangs kunt.'},
+ 'houtrot-kozijnherstel': {
+  'summary': 'Aangetast hout eerst herstellen, zodat nieuw schilderwerk weer goed hecht.',
+  'heading': 'Eerst herstellen, dan schilderen',
+  'paragraph': 'Houtrot ontstaat vaak onzichtbaar onder de verf, bijvoorbeeld onder aan een kozijn of bij een verbinding. Schilderen over aangetast hout lost het probleem niet op. We verwijderen het rotte deel, herstellen het kozijn en maken het hout weer geschikt voor een nieuwe verflaag.',
+  'preparation': 'Geef door waar u zachte plekken, loslatende verf of open naden ziet. Een overzichtsfoto en een foto van dichtbij helpen bij het eerste gesprek. Pas na het bekijken van het hout is duidelijk hoe groot de schade is en welk herstel nodig is.',
+  'question': 'Hoe weet ik of mijn kozijn houtrot heeft?',
+  'answer': 'Signalen zijn zacht aanvoelend hout, bladderende verf, donkere plekken en open naden, vooral aan de onderkant van kozijnen en ramen. Twijfelt u? Laat het bekijken voordat de schade groter wordt.'},
+ 'zakelijk-vve': {
+  'summary': 'Schilderwerk en een onderhoudsplan voor bedrijfspanden en VvE’s.',
+  'heading': 'Vooruit plannen met een onderhoudsplan',
+  'paragraph': 'Voor een bedrijfspand, een VvE of een appartementencomplex wilt u weten waar u aan toe bent. Met een onderhoudsplan brengen we in kaart welk schilderwerk wanneer aandacht nodig heeft. Zo kunt u de kosten over de jaren spreiden en voorkomt u achterstallig onderhoud.',
+  'preparation': 'We bespreken welke gebouwen en onderdelen het betreft, wie het aanspreekpunt is en welke afspraken er gelden voor bewoners, huurders of medewerkers. Ook de bereikbaarheid en de planning rond werktijden of drukke momenten komen vooraf aan bod.',
+  'question': 'Kunnen de werkzaamheden in fases worden uitgevoerd?',
+  'answer': 'Ja, dat kan in overleg. Een onderhoudsplan helpt juist om werk over meerdere jaren of per gebouwdeel te verdelen. We stemmen de fasering af op uw begroting en het gebruik van het pand.'}
 }
 
 LOCATIONS = [

@@ -1,6 +1,6 @@
 # Website en lokale vindbaarheid
 
-De website heeft 15 bezoekerspagina’s en een afgeschermd aanvraagoverzicht.
+De website heeft 18 bezoekerspagina’s en een afgeschermd aanvraagoverzicht.
 De lokale pagina’s voor Oldebroek, Wezep, Zwolle, Elburg en Nunspeet zijn alleen
 via de footer met het kopje **Snelle links** opgenomen in de navigatie.
 Alle vijf hebben eigen inhoud, vragen, metadata en Service-schema met het
@@ -21,7 +21,7 @@ HD-logo zijn behouden. De mobiele achtergrond gebruikt hetzelfde WebP-bestand.
 
 ## Technische SEO bijgewerkt op 27 september 2026
 
-- Alle 15 bezoekerspagina’s zijn indexeerbaar in hun HTML (`indexable: true`).
+- Alle 18 bezoekerspagina’s zijn indexeerbaar in hun HTML (`indexable: true`).
   Het beheer houdt noindex en serverautorisatie. De hostingtoegang is nog privé;
   Google kan de website daarom nog niet crawlen. Een openbare lancering vergt
   een wijziging van de doelgroep op verzoek van de eigenaar.
@@ -29,7 +29,7 @@ HD-logo zijn behouden. De mobiele achtergrond gebruikt hetzelfde WebP-bestand.
   Canonicals en sitemap gebruiken het bestaande actieve Sites-adres. Bevestig
   bij lancering het actieve productiedomein en wijzig `origin` centraal.
 - Elke pagina heeft precies één H1 en een gecontroleerde kopvolgorde. Het
-  dienstenoverzicht gebruikt H2 voor de vier diensten; interne links leiden
+  dienstenoverzicht toont de zeven diensten als tegels; interne links leiden
   naar projecten, contactvragen en relevante diensten.
 - Open Graph en Twitter gebruiken de bestaande goedgekeurde busfoto, met
   absolute URL, afmetingen en alternatieve tekst. Er is geen nieuwe foto gemaakt.

@@ -312,3 +312,12 @@ input::placeholder,textarea::placeholder{color:#767676}
 @media(max-width:760px){.comparison.is-slider .comparison-images{--thumb:44px}.comparison-knob{width:46px;height:46px}.comparison.is-slider .comparison-badge{top:12px;left:12px}.comparison.is-slider [data-compare-image=after] .comparison-badge{right:12px}}
 @media(prefers-reduced-motion:reduce){.comparison-knob{transition:none}}
 .comparison.is-slider .comparison-toolbar,.comparison.is-slider .comparison-note{max-width:540px;margin-inline:auto}
+
+/* Teksttegels zonder foto en een brede slottegel op de dienstenpagina; tekstlinks naar overige diensten op de homepage. */
+.service-tiles .tile-wide{grid-column:1/-1}
+.service-tiles .tile-wide .tile-media{min-height:200px}
+.text-tile .tile-media{background:#f3f3f3;color:var(--ink)}
+.text-tile .tile-number{color:var(--muted)}
+.service-more{margin-top:28px;font-size:16px;line-height:1.8;color:var(--muted);max-width:760px}
+.service-more a{color:var(--ink);text-decoration:underline;text-underline-offset:.25em;text-decoration-thickness:1px}
+.service-more a:hover{text-decoration-thickness:2px}
