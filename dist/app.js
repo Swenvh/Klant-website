@@ -42,6 +42,26 @@ document.querySelectorAll('[data-comparison]').forEach(comparison=>{
  const buttons=Array.from(comparison.querySelectorAll('[data-compare-view]'));
  const photos=Array.from(comparison.querySelectorAll('[data-compare-image]'));
  const status=comparison.querySelector('.comparison-status');
+ // Schuifregelaar: beide foto's liggen over elkaar. Een native range werkt met
+ // muis, touch en toetsenbord; de onzichtbare thumb valt precies op de greep.
+ if('slider' in comparison.dataset){
+  const images=comparison.querySelector('.comparison-images');
+  const range=document.createElement('input');
+  range.type='range';range.min='0';range.max='100';range.value='50';range.className='comparison-range';
+  range.setAttribute('aria-label','Schuif om de foto voor en na het schilderen te vergelijken');
+  const handle=document.createElement('span');
+  handle.className='comparison-handle';handle.setAttribute('aria-hidden','true');
+  handle.innerHTML='<span class="comparison-knob"><svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M9 6l-6 6 6 6M15 6l6 6-6 6"/></svg></span>';
+  const update=()=>{
+   images.style.setProperty('--split',range.value/100);
+   range.setAttribute('aria-valuetext',`${range.value}% voor, ${100-range.value}% na`);
+  };
+  range.addEventListener('input',update);
+  images.append(range,handle);
+  comparison.classList.add('is-slider');
+  update();
+  return;
+ }
  controls.hidden=false;
  buttons.forEach(button=>button.addEventListener('click',()=>{
   const view=button.dataset.compareView;
