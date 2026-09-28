@@ -101,7 +101,17 @@ def render(route,title,desc,content,active,home=False,gallery=False,private=Fals
   brand.set('class',brand.get('class')+' brand-integrated')
  for nav_class in ['desktop-nav','mobile-nav']:
   n=cls(nav_class,s)[0]
-  links=''.join(f'<a href="{url}"'+(' aria-current="page"' if url==active or (active.startswith('/diensten/') and url=='/diensten/') else '')+f'>{label}</a>' for url,label in nav)
+  def navlink(url,label):
+   current=' aria-current="page"' if url==active or (active.startswith('/diensten/') and url=='/diensten/') else ''
+   if url!='/diensten/':return f'<a href="{url}"{current}>{label}</a>'
+   # Uitklapbaar dienstenmenu; de link zelf blijft naar het overzicht gaan.
+   kind=nav_class.split('-')[0]
+   items=''.join(f'<a href="{service_url(v)}"'+(' aria-current="page"' if route==service_url(v) else '')+f'>{escape(v["name"])}</a>' for v in services)
+   return (f'<div class="nav-dropdown"><a href="{url}"{current}>{label}</a>'
+    f'<button type="button" class="nav-dropdown-toggle" aria-expanded="false" aria-controls="diensten-{kind}"><span class="visually-hidden">Toon alle diensten</span>'
+    '<svg viewBox="0 0 12 12" width="14" height="14" aria-hidden="true" focusable="false"><path d="M2.5 4.5 6 8l3.5-3.5" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></button>'
+    f'<div class="nav-dropdown-panel" id="diensten-{kind}"><div class="nav-dropdown-list">{items}<a class="nav-dropdown-all" href="{url}">Alle diensten bekijken</a></div></div></div>')
+  links=''.join(navlink(url,label) for url,label in nav)
   if nav_class=='mobile-nav':links+='<a href="tel:+31624996700">Bel Stef: 06 24 99 67 00</a>'
   insert_content(n,links)
  toggle=cls('menu-toggle',s)[0]
