@@ -69,7 +69,7 @@ for route,doc in documents.items():
   if src and src.startswith('/'):
    assert (out/src.lstrip('/')).is_file(), ('missing image',src)
   if img.tag=='img':assert img.get('alt') is not None, ('missing alt',route)
-assert documents['/'].xpath('//a[@href="/contact/#offerte" and normalize-space(.)="Offerte Aanvragen"]')
+assert documents['/'].xpath('//a[@href="/contact/#offerte" and normalize-space(.)="Offerte aanvragen"]')
 assert not documents['/'].xpath('//div[contains(@class,"hero-location")]')
 assert not documents['/'].xpath('//section[contains(@class,"hero")]//p[contains(@class,"eyebrow")]')
 assert documents['/contact/'].xpath('//form[@id="offerte"]//button[@type="submit" and contains(.,"e-mailprogramma")]')
