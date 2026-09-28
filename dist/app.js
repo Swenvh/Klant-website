@@ -5,6 +5,14 @@ menuButton.addEventListener('click',()=>{const opened=menuButton.getAttribute('a
 mobileNav.querySelectorAll('a').forEach(a=>a.addEventListener('click',closeMenu));
 document.addEventListener('keydown',e=>{if(e.key==='Escape'&&!mobileNav.hidden){closeMenu();menuButton.focus();}});
 window.matchMedia('(min-width:851px)').addEventListener('change',e=>{if(e.matches)closeMenu();});
+// Uitklapbaar dienstenmenu: met de muis opent het via CSS; de knop werkt voor touch, toetsenbord en schermlezers.
+document.querySelectorAll('.nav-dropdown').forEach(drop=>{
+ const toggle=drop.querySelector('.nav-dropdown-toggle');
+ const set=open=>{drop.classList.toggle('is-open',open);toggle.setAttribute('aria-expanded',String(open));};
+ toggle.addEventListener('click',()=>set(toggle.getAttribute('aria-expanded')!=='true'));
+ drop.addEventListener('keydown',e=>{if(e.key==='Escape'&&drop.classList.contains('is-open')){e.stopPropagation();set(false);toggle.focus();}});
+ document.addEventListener('click',e=>{if(!drop.contains(e.target))set(false);});
+});
 document.querySelectorAll('.service-quote').forEach(a=>a.addEventListener('click',()=>{const select=document.querySelector('[name=service]');if(select)select.value=a.dataset.service;}));
 document.querySelector('#offerte')?.addEventListener('submit',e=>{e.preventDefault();const form=e.currentTarget;if(!form.reportValidity())return;const d=new FormData(form);const body=`Beste Stef,\n\nGraag bespreek ik de volgende schilderwerkzaamheden.\n\nNaam: ${d.get('name')}\nWoonplaats: ${d.get('city')}\nE-mail: ${d.get('email')}\nTelefoon: ${d.get('phone')||'Niet ingevuld'}\nWerkzaamheden: ${d.get('service')}\n\nMijn plannen:\n${d.get('message')}\n\nMet vriendelijke groet,\n${d.get('name')}`;window.location.href=`mailto:info@vanommenschilderwerken.nl?subject=${encodeURIComponent('Aanvraag '+d.get('service')+' — '+d.get('city'))}&body=${encodeURIComponent(body)}`;form.querySelector('.form-status').hidden=false;});
 function openDialog(dialog){dialog.showModal();document.body.classList.add('dialog-open');}
