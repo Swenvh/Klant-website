@@ -65,7 +65,7 @@ LOCATIONS = [
   'image':'binnenschilderwerk-na.jpeg', 'alt':'Afgewerkte witte wanden en plinten na binnenschilderwerk'},
  {'slug':'schilder-wezep', 'name':'Wezep',
   'description':'Schilder gezocht in Wezep? Van Ommen Schilderwerken uit Oldebroek bespreekt uw binnen- en buitenschilderwerk, voorbereiding, kleur en offerte.',
-  'intro':'Woont u in Wezep en wilt u uw huis laten schilderen? Stef van Ommen helpt u vanuit Oldebroek met het bespreken van uw schilderplannen. Voor een frisse binnenkant en verzorgd buitenhoutwerk.',
+  'intro':'Woont u in Wezep en wilt u uw huis laten schilderen? Stef van Ommen helpt u vanuit Oldebroek met binnenschilderwerk en het onderhoud van uw buitenhoutwerk.',
   'heading':'Schilderwerk in Wezep, met één aanspreekpunt',
   'text':'Voor uw woning in Wezep heeft u rechtstreeks contact met Stef. Het bedrijf is gevestigd in Oldebroek. U hoeft nog niet precies te weten welke behandeling nodig is: beschrijf wat u wilt vernieuwen en welke plekken u opvallen. Daarna bespreken we het werk en een passend moment om de situatie te bekijken.',
   'focus':'Wat kunt u alvast bekijken aan uw woning?',
@@ -79,7 +79,7 @@ LOCATIONS = [
   'description':'Schilder in Zwolle gezocht? Bespreek uw binnen- en buitenschilderwerk met Stef van Ommen. Duidelijke afspraken over voorbereiding, afwerking en offerte.',
   'intro':'Uw woning in Zwolle laten schilderen? Van Ommen Schilderwerken helpt u vanuit Oldebroek met een frisse binnenkant en verzorgd buitenhoutwerk. U bespreekt uw wensen rechtstreeks met Stef.',
   'heading':'Uw huis in Zwolle opfrissen, met duidelijke afspraken',
-  'text':'Nieuwe verf op de muren, opnieuw gelakte deuren of onderhoud aan de buitenkozijnen: het begint met uw wensen. Geef aan welke delen van uw woning in Zwolle u wilt laten schilderen en of u tijdens het werk thuis blijft wonen. Stef bespreekt de omvang van de klus, de bereikbaarheid en de gewenste afwerking. Daarna kan een offerte worden opgesteld voor de werkzaamheden aan uw woning.',
+  'text':'Wilt u nieuwe verf op de muren, opnieuw gelakte deuren of onderhoud aan de buitenkozijnen? Geef aan welke delen van uw woning in Zwolle u wilt laten schilderen en of u tijdens het werk thuis blijft wonen. Stef bespreekt de omvang van de klus, de bereikbaarheid en de gewenste afwerking. Daarna kan een offerte worden opgesteld voor de werkzaamheden aan uw woning.',
   'focus':'Schilderwerk plannen terwijl u thuis woont',
   'focus_text':'U wilt uw huis kunnen blijven gebruiken. Bespreek daarom vooraf welke kamers vrij moeten zijn en of uitvoering per ruimte mogelijk is. Denk ook aan het verplaatsen van meubels, het afdekken van vloeren en de toegang tot ramen en deuren. Woont u in een appartement? Geef door op welke verdieping het werk nodig is en hoe de woning bereikbaar is. Zo kunnen deze praktische punten worden meegenomen bij het bekijken en plannen van het werk.',
   'questions':[
@@ -89,9 +89,9 @@ LOCATIONS = [
   'image':'binnenschilderwerk-na.jpeg', 'alt':'Lichte wanden en witte plinten na de afwerking van een binnenruimte'},
  {'slug':'schilder-elburg', 'name':'Elburg',
   'description':'Uw schilder voor Elburg: Van Ommen Schilderwerken uit Oldebroek. Voor binnen- en buitenschilderwerk, kozijnen en houtonderhoud. Vraag een offerte aan.',
-  'intro':'Toe aan schilderwerk voor uw woning in Elburg? Of u nu uw kamers wilt opfrissen of de buitenkant wilt onderhouden: Stef bespreekt met u wat nodig is en welke afwerking bij uw woning past.',
+  'intro':'Toe aan schilderwerk voor uw woning in Elburg? Wilt u uw kamers opfrissen of de buitenkant laten onderhouden? Stef bespreekt met u wat nodig is en welke afwerking bij uw woning past.',
   'heading':'Schilderwerk voor uw woning in Elburg',
-  'text':'Een verzorgde woning begint bij aandacht voor het bestaande werk. Van Ommen Schilderwerken werkt vanuit Oldebroek en is ook beschikbaar voor uw schilderplannen in Elburg. U kunt muren, plafonds, deuren en kozijnen laten bespreken, maar ook houten onderdelen aan de buitenkant. We kijken naar de huidige verflaag en eventuele beschadigingen voordat we de werkzaamheden en de offerte bepalen.',
+  'text':'Van Ommen Schilderwerken werkt vanuit Oldebroek en is ook beschikbaar voor uw schilderplannen in Elburg. U kunt muren, plafonds, deuren en kozijnen laten bespreken, maar ook houten onderdelen aan de buitenkant. We kijken naar de huidige verflaag en eventuele beschadigingen voordat we de werkzaamheden en de offerte bepalen.',
   'focus':'Wanneer vraagt buitenhoutwerk om aandacht?',
   'focus_text':'Loslatende verf, open naden en beschadigde plekken zijn redenen om het houtwerk te laten bekijken. Alleen overschilderen is dan niet altijd voldoende. Geef bij uw aanvraag aan welke kozijnen, deuren of houten geveldelen het betreft. Kijk ook of hoger gelegen onderdelen bereikbaar zijn. We bespreken de voorbereiding en eventueel nodig herstel, en houden bij de planning van het buitenwerk rekening met de weersomstandigheden.',
   'questions':[
@@ -113,4 +113,4 @@ LOCATIONS = [
   'image':'binnenschilderwerk-na.jpeg', 'alt':'Verzorgd binnenschilderwerk met lichte muren en wit afgewerkte randen'}
 ]
 
-HOME_INTRO = '''<section class="home-welcome section-pad section-space"><div><p class="eyebrow">UW WONING WEER VERZORGD</p><h2>Een frisse kleur.<br>Een vertrouwd gevoel.</h2></div><div><p class="welcome-lead">Uw schilder voor binnen en buiten, vanuit Oldebroek.</p><p>U wilt weer prettig thuiskomen in een verzorgd huis. Van Ommen Schilderwerken helpt met muren, plafonds, deuren en kozijnen. Stef denkt met u mee over wat uw woning nodig heeft.</p><p>U bespreekt de werkzaamheden, de voorbereiding en de offerte vooraf. Zo weet u waar u aan toe bent.</p><a class="text-link" href="tel:+31624996700">Bel Stef: 06 24 99 67 00</a></div></section>'''
+HOME_INTRO = '''<section class="home-welcome section-pad section-space"><div><p class="eyebrow">UW WONING WEER VERZORGD</p><h2>Schilder voor uw woning<br>in Oldebroek en omgeving.</h2></div><div><p class="welcome-lead">Stef van Ommen schildert binnen en buiten, voor woningen in Oldebroek, Wezep, Zwolle, Elburg en Nunspeet.</p><p>Van Ommen Schilderwerken helpt met muren, plafonds, deuren en kozijnen. Stef denkt met u mee over wat uw woning nodig heeft.</p><p>U bespreekt de werkzaamheden, de voorbereiding en de offerte vooraf. Zo weet u waar u aan toe bent.</p><a class="text-link" href="tel:+31624996700">Bel Stef: 06 24 99 67 00</a></div></section>'''

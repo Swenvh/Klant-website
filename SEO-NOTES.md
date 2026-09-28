@@ -134,3 +134,15 @@ afbeeldingen en de afgesproken scheiding tussen footer en hoofdmenu.
   gegarandeerd. Na de openbare lancering moeten Google Search Console, Bing
   Webmaster Tools en het Google Bedrijfsprofiel worden geverifieerd en met
   exact dezelfde bedrijfsgegevens worden bijgehouden.
+
+## Schrijfrichtlijn (28 september 2026)
+
+Zichtbare teksten zijn nagelopen met de skill `.claude/skills/no-ai-slop`.
+Tweedelige sloganachtige koppen zijn vervangen door concrete koppen met
+zoekwoorden, zoals "Schilder voor uw woning in Oldebroek en omgeving". Ook
+abstracte zinnen, uitsmijters en dubbele-punt-onthullingen zijn herschreven.
+De hero-slogan "Oog voor detail. Hart voor schilderwerk." en de H1's,
+paginatitels, meta-omschrijvingen en FAQ-vragen zijn behouden. Alleen de
+meta-omschrijvingen van Binnenschilderwerk en Kleur & afwerking veranderden
+mee met hun dienstomschrijving; beide blijven onder 160 tekens. Nieuwe
+teksten: concreet, zonder beloftes die het bedrijf niet heeft bevestigd.
