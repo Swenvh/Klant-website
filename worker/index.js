@@ -1,6 +1,6 @@
 import {confirmAppointment,mailReady} from './confirmation.js';
 const PERIODS=['Ochtend (09:00–12:00)','Middag (13:00–17:00)','Geen voorkeur'];
-const SERVICES=['Binnenschilderwerk','Buitenschilderwerk','Houtwerk & onderhoud','Kleur & afwerking','Meerdere werkzaamheden / ik weet het nog niet'];
+const SERVICES=['Binnenschilderwerk','Buitenschilderwerk','Houtwerk & onderhoud','Kleur & afwerking','Lakwerk','Houtrotherstel & kozijnreparatie','Zakelijk & VvE-schilderwerk','Meerdere werkzaamheden / ik weet het nog niet'];
 const STATUS=['nieuw','in_overleg','bevestigd','afgerond','geannuleerd'];
 const EVENTS=['page_view','quote_cta','quote_start','quote_mail_open','whatsapp_click','phone_click','appointment_cta','appointment_start','appointment_saved'];
 const json=(value,status=200)=>Response.json(value,{status,headers:{'Cache-Control':'private, no-store','X-Content-Type-Options':'nosniff'}});

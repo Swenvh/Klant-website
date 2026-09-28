@@ -1,6 +1,6 @@
 # Van Ommen Schilderwerken
 
-> Schildersbedrijf uit Oldebroek voor woningen, met rechtstreeks contact met eigenaar en schilder Stef van Ommen.
+> Schildersbedrijf uit Oldebroek voor woningen, bedrijfspanden en VvE’s, met rechtstreeks contact met eigenaar en schilder Stef van Ommen.
 
 ## Bedrijfsgegevens
 
@@ -18,6 +18,9 @@
 - Buitenschilderwerk: kozijnen, deuren en houten geveldelen.
 - Houtwerk en onderhoud: beoordeling van losse verf en beschadigde plekken voordat wordt geschilderd.
 - Kleur en afwerking: hulp bij kleurkeuze en het kiezen van een passende afwerking.
+- Lakwerk: slijtvaste afwerking van deuren, kozijnen, trappen en leuningen.
+- Houtrotherstel en kozijnreparatie: aangetast hout verwijderen en kozijnen herstellen voordat wordt geschilderd.
+- Zakelijk en VvE-schilderwerk: schilderwerk voor bedrijfspanden, VvE’s en appartementencomplexen, met een onderhoudsplan.
 
 ## Belangrijk voor klanten
 
@@ -28,8 +31,11 @@ Een prijs hangt af van oppervlakte, ondergrond, voorbereiding, bereikbaarheid en
 - [diensten](https://van-ommen-schilderwerken.ecomswen.chatgpt.site/diensten/)
 - [diensten/binnenschilderwerk](https://van-ommen-schilderwerken.ecomswen.chatgpt.site/diensten/binnenschilderwerk/)
 - [diensten/buitenschilderwerk](https://van-ommen-schilderwerken.ecomswen.chatgpt.site/diensten/buitenschilderwerk/)
+- [diensten/lakwerk](https://van-ommen-schilderwerken.ecomswen.chatgpt.site/diensten/lakwerk/)
+- [diensten/houtrot kozijnherstel](https://van-ommen-schilderwerken.ecomswen.chatgpt.site/diensten/houtrot-kozijnherstel/)
 - [diensten/houtwerk onderhoud](https://van-ommen-schilderwerken.ecomswen.chatgpt.site/diensten/houtwerk-onderhoud/)
 - [diensten/kleur afwerking](https://van-ommen-schilderwerken.ecomswen.chatgpt.site/diensten/kleur-afwerking/)
+- [diensten/zakelijk vve](https://van-ommen-schilderwerken.ecomswen.chatgpt.site/diensten/zakelijk-vve/)
 - [ons werk](https://van-ommen-schilderwerken.ecomswen.chatgpt.site/ons-werk/)
 - [over stef](https://van-ommen-schilderwerken.ecomswen.chatgpt.site/over-stef/)
 - [contact](https://van-ommen-schilderwerken.ecomswen.chatgpt.site/contact/)
