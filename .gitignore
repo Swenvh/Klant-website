@@ -5,3 +5,4 @@ node_modules/
 dist/client/
 dist/server/
 dist/.openai/
+.openai/
