@@ -1,0 +1,104 @@
+/* Stand-in for what WordPress generates from theme.json and core block CSS,
+   so the static preview looks like the theme. Not used by WordPress itself. */
+@font-face { font-family: Lato; font-weight: 400; font-style: normal; font-display: swap; src: url("theme/assets/fonts/lato-latin-400-normal.woff2") format("woff2"); }
+@font-face { font-family: Lato; font-weight: 400; font-style: italic; font-display: swap; src: url("theme/assets/fonts/lato-latin-400-italic.woff2") format("woff2"); }
+@font-face { font-family: Lato; font-weight: 700; font-style: normal; font-display: swap; src: url("theme/assets/fonts/lato-latin-700-normal.woff2") format("woff2"); }
+@font-face { font-family: Lato; font-weight: 900; font-style: normal; font-display: swap; src: url("theme/assets/fonts/lato-latin-900-normal.woff2") format("woff2"); }
+
+:root {
+	--wp--preset--color--brand: #0067B1; --wp--preset--color--brand-dark: #00508A; --wp--preset--color--brand-light: #E6F0F8;
+	--wp--preset--color--graphite: #363738; --wp--preset--color--ink: #1F2021; --wp--preset--color--slate: #A8A7B7;
+	--wp--preset--color--muted: #5C5D66; --wp--preset--color--mist: #F4F5F8; --wp--preset--color--line: #E2E3EA; --wp--preset--color--white: #FFFFFF;
+	--wp--preset--font-size--small: .875rem; --wp--preset--font-size--medium: 1.0625rem;
+	--wp--preset--font-size--large: clamp(1.125rem, 1.05rem + .3vw, 1.25rem);
+	--wp--preset--font-size--x-large: clamp(1.375rem, 1.2rem + .8vw, 1.75rem);
+	--wp--preset--font-size--xx-large: clamp(1.875rem, 1.5rem + 1.6vw, 2.5rem);
+	--wp--preset--font-size--huge: clamp(2.375rem, 1.6rem + 3.4vw, 4rem);
+	--wp--preset--font-family--lato: Lato, system-ui, -apple-system, "Segoe UI", sans-serif;
+	--wp--preset--spacing--20: .5rem; --wp--preset--spacing--30: 1rem; --wp--preset--spacing--40: 1.5rem;
+	--wp--preset--spacing--50: clamp(2rem, 4vw, 3rem); --wp--preset--spacing--60: clamp(3rem, 7vw, 5.5rem); --wp--preset--spacing--70: clamp(4rem, 10vw, 8rem);
+}
+*, *::before, *::after { box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+body { margin: 0; background: #fff; color: var(--wp--preset--color--ink); font-family: var(--wp--preset--font-family--lato); font-size: var(--wp--preset--font-size--medium); line-height: 1.65; }
+h1, h2, h3, h4 { font-weight: 900; line-height: 1.15; letter-spacing: -.01em; color: var(--wp--preset--color--ink); margin: 1.5em 0 .5em; }
+h1 { font-size: var(--wp--preset--font-size--huge); }
+h2 { font-size: var(--wp--preset--font-size--xx-large); }
+h3 { font-size: var(--wp--preset--font-size--x-large); font-weight: 700; }
+h4 { font-size: var(--wp--preset--font-size--large); font-weight: 700; }
+p { margin: 0 0 1em; }
+a { color: var(--wp--preset--color--brand); }
+a:hover { color: var(--wp--preset--color--brand-dark); }
+figure { margin: 0; }
+
+.has-small-font-size { font-size: var(--wp--preset--font-size--small) !important; }
+.has-large-font-size { font-size: var(--wp--preset--font-size--large) !important; }
+.has-white-color { color: #fff !important; }
+.has-brand-background-color { background-color: var(--wp--preset--color--brand) !important; }
+.has-graphite-background-color { background-color: var(--wp--preset--color--graphite) !important; }
+.has-mist-background-color { background-color: var(--wp--preset--color--mist) !important; }
+.has-white-background-color { background-color: #fff !important; }
+.has-graphite-background-color h2, .has-graphite-background-color h3 { color: #fff; }
+
+/* Core blocks used in the content. */
+.wp-block-buttons { display: flex; flex-wrap: wrap; gap: .75rem; }
+.wp-block-button__link {
+	display: inline-block; background: var(--wp--preset--color--brand); color: #fff; text-decoration: none;
+	font-weight: 700; padding: .85rem 1.5rem; border-radius: 6px; line-height: 1.2;
+}
+.wp-block-button__link:hover { background: var(--wp--preset--color--brand-dark); color: #fff; }
+.wp-block-button.is-style-outline .wp-block-button__link { background: transparent; color: var(--wp--preset--color--brand); box-shadow: inset 0 0 0 2px currentColor; }
+.wp-block-button.is-style-outline .wp-block-button__link:hover { background: var(--wp--preset--color--brand-light); }
+.wp-block-columns { display: flex; gap: 2rem; }
+.wp-block-column { flex: 1 1 0; min-width: 0; }
+@media (max-width: 781px) { .wp-block-columns { flex-direction: column; } }
+.wp-block-cover { position: relative; display: flex; align-items: center; overflow: hidden; }
+.wp-block-cover__image-background { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; }
+.wp-block-cover__background { position: absolute; inset: 0; }
+.wp-block-cover__inner-container { position: relative; z-index: 1; }
+.wp-block-list { padding-left: 1.25rem; }
+.vdt-features, .vdt-hero-stats, .vdt-cards-3 { margin: 0; }
+
+/* Content widths (WordPress constrained layout). */
+.vdt-page-body { padding: var(--wp--preset--spacing--50) clamp(1rem, 4vw, 2.5rem) var(--wp--preset--spacing--60); }
+.vdt-page-body > * { max-width: 760px; margin-inline: auto; }
+.vdt-page-body > .alignwide, .vdt-page-body > .vdt-product-top, .vdt-page-body > .vdt-cta-wrap { max-width: 1240px; }
+.vdt-page-body > .vdt-cta-wrap { padding-inline: 0; }
+.vdt-page-body > .vdt-cta-wrap .vdt-wrap { padding-inline: 0; }
+.vdt-page-head-inner { max-width: 860px; }
+.vdt-page-head p.has-small-font-size { margin: 0; color: #DCEAF5; }
+.vdt-row { display: flex; align-items: center; justify-content: space-between; gap: 1rem; flex-wrap: wrap; }
+.vdt-header .vdt-row { flex-wrap: nowrap; }
+.vdt-topbar { padding-block: .4rem; }
+
+/* Static navigation for the preview (WordPress uses the Navigation block). */
+.vdt-preview-nav > ul { list-style: none; margin: 0; padding: 0; display: flex; align-items: center; gap: 1.6rem; }
+.vdt-preview-nav li { position: relative; }
+.vdt-preview-nav > ul > li > a { display: block; padding: .35rem 0; font-weight: 700; color: var(--wp--preset--color--ink); text-decoration: none; border-bottom: 2px solid transparent; }
+.vdt-preview-nav > ul > li > a:hover { color: var(--wp--preset--color--brand); border-bottom-color: var(--wp--preset--color--brand); }
+.vdt-preview-nav .has-sub > a::after { content: "▾"; font-size: .7em; margin-left: .35em; }
+.vdt-sub {
+	list-style: none; margin: 0; padding: .5rem; position: absolute; top: 100%; left: -1rem; min-width: 320px; background: #fff;
+	border: 1px solid var(--wp--preset--color--line); border-radius: 12px; box-shadow: 0 8px 24px rgba(31, 32, 33, .1);
+	opacity: 0; visibility: hidden; transform: translateY(6px); transition: .2s; z-index: 60;
+}
+.has-sub:hover .vdt-sub, .has-sub:focus-within .vdt-sub { opacity: 1; visibility: visible; transform: none; }
+.vdt-sub a { display: block; padding: .55rem .75rem; border-radius: 6px; color: var(--wp--preset--color--ink); text-decoration: none; }
+.vdt-sub a:hover { background: var(--wp--preset--color--brand-light); color: var(--wp--preset--color--brand-dark); }
+.vdt-preview-nav .vdt-nav-cta a { color: #fff; padding: .6rem 1.2rem; font-size: var(--wp--preset--font-size--small); }
+.vdt-menu-toggle, .vdt-burger { display: none; }
+@media (max-width: 960px) {
+	.vdt-burger { display: grid; place-items: center; width: 44px; height: 44px; cursor: pointer; border-radius: 6px; border: 1px solid var(--wp--preset--color--line); }
+	.vdt-burger span, .vdt-burger span::before, .vdt-burger span::after { display: block; width: 20px; height: 2px; background: var(--wp--preset--color--ink); position: relative; content: ""; }
+	.vdt-burger span::before { position: absolute; top: -6px; } .vdt-burger span::after { position: absolute; top: 6px; }
+	.vdt-preview-nav { position: absolute; left: 0; right: 0; top: 100%; background: #fff; border-bottom: 1px solid var(--wp--preset--color--line); display: none; padding: 1rem clamp(1rem, 4vw, 2.5rem) 1.5rem; }
+	.vdt-menu-toggle:checked ~ .vdt-preview-nav { display: block; }
+	.vdt-preview-nav > ul { flex-direction: column; align-items: stretch; gap: .25rem; }
+	.vdt-sub { position: static; opacity: 1; visibility: visible; transform: none; box-shadow: none; border: 0; padding: 0 0 0 1rem; min-width: 0; }
+	.vdt-header { position: relative; }
+	.vdt-topbar .vdt-row > p:first-child { display: none; }
+}
+.vdt-footer .vdt-wrap, .vdt-footer > .wp-block-columns { max-width: 1240px; margin-inline: auto; }
+.vdt-footer { padding-inline: clamp(1rem, 4vw, 2.5rem); }
+.vdt-footer .wp-block-group { display: flex; justify-content: space-between; flex-wrap: wrap; gap: 1rem; max-width: 1240px; margin-inline: auto; }
+.vdt-footer-sep { max-width: 1240px; border: 0; border-top: 1px solid; }
