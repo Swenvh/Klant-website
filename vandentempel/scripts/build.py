@@ -182,8 +182,8 @@ def build_home(P, news):
     def img(path):
         return ORIGIN + path
     hero = (
-        f'<!-- wp:cover {{"url":"{img("/images/overons8.jpg")}","dimRatio":90,"minHeight":620,"align":"full","className":"vdt-hero","layout":{{"type":"default"}}}} -->\n'
-        f'<div class="wp-block-cover alignfull vdt-hero" style="min-height:620px"><img class="wp-block-cover__image-background" alt="" src="{img("/images/overons8.jpg")}" data-object-fit="cover"/><span aria-hidden="true" class="wp-block-cover__background has-background-dim-90 has-background-dim"></span><div class="wp-block-cover__inner-container">'
+        f'<!-- wp:cover {{"url":"/wp-content/themes/vandentempel/assets/images/hero-vandentempel-4k.jpg","dimRatio":90,"minHeight":620,"align":"full","className":"vdt-hero","layout":{{"type":"default"}}}} -->\n'
+        f'<div class="wp-block-cover alignfull vdt-hero" style="min-height:620px"><img class="wp-block-cover__image-background" alt="" src="/wp-content/themes/vandentempel/assets/images/hero-vandentempel-4k.jpg" data-object-fit="cover"/><span aria-hidden="true" class="wp-block-cover__background has-background-dim-90 has-background-dim"></span><div class="wp-block-cover__inner-container">'
         + b_group(
             b_par("Test- en meetapparatuur voor de elektrische infrastructuur", cls="vdt-eyebrow")
             + "\n\n" + b_heading("Zekerheid in spanning", level=1)
@@ -236,7 +236,17 @@ def build_home(P, news):
         + f'<span class="vdt-news-body"><time datetime="{n["date"] or ""}">{nl_date(n["date"])}</time><span class="vdt-news-title">{html.escape(n["title"])}</span></span></a>'
         for n in news[:3])
     newsblock = section(section_head("Nieuws", "Actueel bij Vandentempel", ("Alle nieuws", "/nieuws/")) + "\n\n" + b_html(f'<div class="vdt-news-grid">{news_cards}</div>'), bg="mist")
-    return "\n\n".join([hero, cats, features, highlights, svc, newsblock, cta_block()])
+    vac = [p for p in P.values() if p["kind"] == "vacancy"]
+    jobs = ""
+    if vac:
+        text = b_group(
+            b_par("Werken bij Vandentempel", cls="vdt-eyebrow")
+            + "\n\n" + b_heading(f"We zoeken {len(vac)} nieuwe collega's")
+            + "\n\n" + b_par("Door toenemende groei van activiteiten zoeken we ondernemende mensen met een elektrotechnische of commerciële achtergrond. Openstaand: " + " en ".join(v["title"] for v in vac) + "."),
+            cls="vdt-jobs-text")
+        band = b_group(text + "\n\n" + b_buttons([("Bekijk vacatures", "/vacatures/", "")]), cls="vdt-jobs-band")
+        jobs = section(band, cls="vdt-section is-tight")
+    return "\n\n".join(x for x in [hero, cats, features, highlights, svc, newsblock, jobs, cta_block()] if x)
 
 
 def cta_block():
@@ -296,8 +306,97 @@ def lead_image(p):
     return p["images"][0] if p["images"] else ""
 
 
+VAC_CONTACT = ("Luuk Groot", "Commercieel Manager", "+31683173300", "+31 (0)6 83 17 33 00", "l.groot@vandentempel.nl")
+
+
+def make_vacancies(P):
+    """Turn vacancy news posts into pages under /vacatures/."""
+    vac = sorted([p for p in P.values() if p["kind"] == "news" and "/vacature-" in p["new"]], key=lambda n: n["date"] or "", reverse=True)
+    if not vac:
+        return
+    for n in vac:
+        body = n["body"]
+        pdf = re.search(r'href="([^"]+\.pdf)"', body)
+        role = re.search(r"(?s)<h2>(?:<strong>)?(.*?)(?:</strong>)?\s*</h2>", body)
+        region = re.search(r"(?s)</h2>\s*<p><em>(.*?)</em></p>", body)
+        title = text_of(role.group(1)) if role else n["title"].replace("Vacature voor ", "")
+        # Drop the PDF list, banner image, intro line, role heading and region: they move to the page header/sidebar.
+        start = re.search(r"(?s)<p><strong>Wat ga je", body)
+        body = body[start.start():] if start else body
+        body = re.sub(r"(?s)<p><strong>Meer weten\?</strong></p>.*", "", body)
+        body = re.sub(r"<p><strong>(.*?)\s*</strong></p>", lambda m: f"<h2>{m.group(1).strip()}</h2>", body)
+        slug = re.sub(r"[^a-z0-9]+", "-", title.lower()).strip("-")
+        path = f"/vacatures/{slug}/"
+        P[path] = {"old": "", "new": path, "kind": "vacancy", "title": title, "date": n["date"], "teasers": {},
+                   "description": f"Vacature {title} bij Vandentempel in Hattem, regio {text_of(region.group(1)) if region else 'Nederland/België'}.",
+                   "body": body, "images": [], "region": text_of(region.group(1)) if region else "",
+                   "pdf": pdf.group(1) if pdf else "", "news": n["new"]}
+    P["/vacatures/"] = {"old": "", "new": "/vacatures/", "kind": "page", "title": "Werken bij Vandentempel", "date": None,
+                        "teasers": {}, "images": [], "body": "",
+                        "description": "Bouw mee aan zekerheid in spanning. Bekijk onze vacatures in test- en meetapparatuur."}
+
+
+def vacancy_apply_card(v):
+    name, role, tel, tel_txt, mail = VAC_CONTACT
+    pdf = f'<br><a href="{v["pdf"]}">Download het volledige vacatureprofiel (pdf)</a>' if v.get("pdf") else ""
+    return b_group(
+        b_heading("Interesse?", level=3)
+        + "\n\n" + b_par(f"Neem contact op met <strong>{name}</strong>, {role.lower()} van Vandentempel.")
+        + "\n\n" + b_buttons([("Solliciteer per e-mail", f"mailto:{mail}?subject=Sollicitatie%20{v['title'].replace(' ', '%20')}", ""), (f"Bel {tel_txt}", f"tel:{tel}", "outline")])
+        + "\n\n" + b_par(f'<a href="mailto:{mail}">{mail}</a>{pdf}', size="small"),
+        cls="is-style-vdt-card vdt-apply-card")
+
+
+def job_teaser(v):
+    """Short summary from the vacancy's own text (role-specific tasks and profile)."""
+    t = v["title"].lower()
+    if "technisch adviseur" in t:
+        return "Adviseren, verkopen en positioneren van hoogwaardige test- en meetapparatuur, zoals van BAUR, Fluke en KoCoS. Met operationele kennis van hoog- en middenspanning."
+    if "accountmanager" in t:
+        return "Relaties bezoeken, onderhouden en uitbouwen, en de technisch specialisten inschakelen voor de juiste adviezen en offertes. Commercieel gedreven, liefst in een technische omgeving."
+    return first_sentences(v["body"], 170)
+
+
+def vacancies_overview(P):
+    vac = sorted([p for p in P.values() if p["kind"] == "vacancy"], key=lambda n: n["date"] or "", reverse=True)
+    cards = "".join(
+        f'<a class="vdt-job" href="{v["new"]}"><span class="vdt-job-meta">'
+        f'<span>{html.escape(v["region"])}</span><span>Hattem of thuis</span></span>'
+        f'<span class="vdt-job-title">{html.escape(v["title"])}</span>'
+        f'<span class="vdt-job-text">{html.escape(job_teaser(v))}</span>'
+        f'<span class="vdt-arrow-link">Bekijk vacature</span></a>'
+        for v in vac)
+    perks = [("Zelfstandige functie", "Een initiatiefrijke rol met ruimte voor eigen inbreng, binnen een stabiel en gezond bedrijf."),
+             ("Leren en ontwikkelen", "Ruimte, tijd en budget voor opleidingen, nieuwe projecten en een persoonlijk ontwikkeltraject."),
+             ("Goede voorwaarden", "Pensioenregeling, opleidingsregeling, bedrijfsfitness, thuiswerkplek en een auto."),
+             ("Sterke familiecultuur", "Een enthousiast team waarvan velen al jarenlang verbonden zijn aan Vandentempel.")]
+    perk_blocks = "\n\n".join(b_group(b_html(f'<div class="vdt-feature-icon">{ICONS[i]}</div>') + "\n\n" + b_heading(t, level=3) + "\n\n" + b_par(d), cls="vdt-feature")
+                               for (t, d), i in zip(perks, ["nazorg", "training", "levering", "advies"]))
+    name, role, tel, tel_txt, mail = VAC_CONTACT
+    return "\n\n".join([
+        b_par(f"Door toenemende groei van activiteiten zoeken we ondernemende collega's. Bij Vandentempel werk je al sinds 1974 aan test- en meetapparatuur voor de elektrische infrastructuur, samen met specialisten die zelf meet-ervaring hebben.", size="large"),
+        b_heading(f"Openstaande vacatures ({len(vac)})", cls="alignwide"),
+        b_html(f'<div class="vdt-jobs alignwide">{cards}</div>'),
+        b_heading("Wat we je bieden", cls="alignwide"),
+        b_group(perk_blocks, cls="vdt-features alignwide"),
+        b_group(
+            b_group(b_heading("Vragen over een vacature?") + "\n\n" + b_par(f"Neem contact op met {name}, {role.lower()} van Vandentempel. Bel <a href=\"tel:{tel}\">{tel_txt}</a> of mail naar <a href=\"mailto:{mail}\">{mail}</a>.", size="large"))
+            + "\n\n" + b_buttons([("Mail Luuk", f"mailto:{mail}", ""), (f"Bel {tel_txt}", f"tel:{tel}", "vdt-ghost")]),
+            cls="vdt-cta-inner alignwide"),
+    ])
+
+
 def page_content(P, p, news):
     path = p["new"]
+    if path == "/vacatures/":
+        return vacancies_overview(P)
+    if p["kind"] == "vacancy":
+        others = [v for v in P.values() if v["kind"] == "vacancy" and v["new"] != path]
+        more = b_par("Bekijk ook onze andere vacature: " + ", ".join(f'<a href="{o["new"]}">{html.escape(o["title"])}</a>' for o in others) + ".") if others else ""
+        return (crumbs(P, path).replace('"vdt-breadcrumbs"', '"vdt-breadcrumbs alignwide"').replace('class="vdt-breadcrumbs"', 'class="vdt-breadcrumbs alignwide"') + "\n\n"
+                + '<!-- wp:columns {"align":"wide","className":"vdt-job-detail"} -->\n<div class="wp-block-columns alignwide vdt-job-detail">'
+                + '<!-- wp:column {"width":"64%"} -->\n<div class="wp-block-column" style="flex-basis:64%">' + p["body"] + ("\n\n" + more if more else "") + "</div>\n<!-- /wp:column -->\n\n"
+                + '<!-- wp:column -->\n<div class="wp-block-column">' + vacancy_apply_card(p) + "</div>\n<!-- /wp:column --></div>\n<!-- /wp:columns -->")
     if path == "/":
         return build_home(P, news)
     if path == "/contact/":
@@ -377,6 +476,8 @@ def contact_page():
 def excerpt_for(p, parent, common):
     if p["new"] in ("/", "/contact/"):
         return ""
+    if p["kind"] == "vacancy":
+        return f"{p['region']} · Kantoor Hattem of thuis"
     t = (parent or {}).get("teasers", {}).get(p["new"]) if parent else ""
     desc = p["description"] if p["description"] not in common else ""
     for cand in (t, desc, "" if p["kind"] == "product" else first_sentences(p["body"])):
@@ -494,7 +595,7 @@ def preview_header(rel):
     nav = [("Service", "service"), ("Trainingen", "trainingen"), ("Verhuur", "verhuur"), ("Nieuws", "nieuws"), ("Over ons", "over-vandentempel")]
     links = "".join(f'<li><a href="{rel}{h}/index.html">{t}</a></li>' for t, h in nav)
     return f"""<div class="vdt-site-header">
-<div class="wp-block-group vdt-topbar has-white-color has-graphite-background-color"><div class="vdt-wrap vdt-row"><p class="has-small-font-size">Specialisten in elektrotechnische meet- en testtechniek sinds 1974</p><p class="has-small-font-size"><a href="tel:+31384449009">+31 (0)38 444 90 09</a> · <a href="mailto:info@vandentempel.nl">info@vandentempel.nl</a> · <a href="#">FR</a></p></div></div>
+<div class="wp-block-group vdt-topbar has-white-color has-graphite-background-color"><div class="vdt-wrap vdt-row"><p class="has-small-font-size">Specialisten in elektrotechnische meet- en testtechniek sinds 1974</p><p class="has-small-font-size"><a class="vdt-topbar-jobs" href="{rel}vacatures/index.html">Vacatures</a> · <a href="tel:+31384449009">+31 (0)38 444 90 09</a> · <a href="mailto:info@vandentempel.nl">info@vandentempel.nl</a> · <a href="#">FR</a></p></div></div>
 <header class="vdt-header has-white-background-color"><div class="vdt-wrap vdt-row">
 <a class="vdt-logo" href="{rel}index.html" aria-label="Vandentempel, naar de homepage"><img src="{rel}theme/assets/images/logo.svg" alt="Vandentempel" width="260" height="19"></a>
 <input type="checkbox" id="vdt-menu" class="vdt-menu-toggle" aria-label="Menu"><label for="vdt-menu" class="vdt-burger" aria-hidden="true"><span></span></label>
@@ -567,6 +668,7 @@ def main():
     # "Nieuws" overview is the WordPress posts page: keep the page, drop its old listing.
     if "/nieuws/" in P:
         P["/nieuws/"]["body"] = ""
+    make_vacancies(P)
     news = sorted([p for p in P.values() if p["kind"] == "news"], key=lambda n: n["date"] or "", reverse=True)
 
     counts = {}
@@ -583,7 +685,7 @@ def main():
     (root / "import").mkdir(exist_ok=True)
     (root / "import" / "vandentempel-content.xml").write_text(xml)
     redirects = ["source,target,regex,code"] + sorted(
-        f'{p["old"].split("?")[0].rstrip("/") or "/nl"},{p["new"]},0,301' for p in P.values())
+        f'{p["old"].split("?")[0].rstrip("/") or "/nl"},{p["new"]},0,301' for p in P.values() if p["old"])
     (root / "import" / "redirects.csv").write_text("\n".join(redirects) + "\n")
 
     # Static preview of the key pages.

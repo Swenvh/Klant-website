@@ -102,3 +102,7 @@ figure { margin: 0; }
 .vdt-footer { padding-inline: clamp(1rem, 4vw, 2.5rem); }
 .vdt-footer .wp-block-group { display: flex; justify-content: space-between; flex-wrap: wrap; gap: 1rem; max-width: 1240px; margin-inline: auto; }
 .vdt-footer-sep { max-width: 1240px; border: 0; border-top: 1px solid; }
+/* WordPress gives columns with a set width a fixed basis (no growing). */
+.wp-block-column[style*="flex-basis"] { flex-grow: 0; }
+@media (max-width: 781px) { .wp-block-column[style*="flex-basis"] { flex-basis: auto !important; } }
+.vdt-page-body > .vdt-breadcrumbs.alignwide { max-width: 1240px; }

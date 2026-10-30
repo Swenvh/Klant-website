@@ -21,6 +21,9 @@ def img_uri(p):
     if p.suffix == ".svg":
         uri = "data:image/svg+xml;base64," + base64.b64encode(p.read_bytes()).decode()
     else:
+        if p.name.startswith("hero-"):  # the home hero stays full size (4K)
+            uri = "data:image/jpeg;base64," + base64.b64encode(p.read_bytes()).decode()
+            cache[p] = uri; return uri
         im = Image.open(p); im.thumbnail((800, 800))
         buf = io.BytesIO()
         if im.mode in ("RGBA", "LA", "P"):
