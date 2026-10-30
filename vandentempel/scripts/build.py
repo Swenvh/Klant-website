@@ -593,6 +593,8 @@ def main():
     shutil.copy(Path(__file__).with_name("preview-base.css"), prev / "preview-base.css")
     footer_part = (root / "wp-content/themes/vandentempel/parts/footer.html").read_text()
     names = set(PREVIEW_PAGES) | {n["new"] for n in news}
+    if "--preview-all" in sys.argv:
+        names = set(P)
     for path in sorted(names):
         if path not in P:
             continue

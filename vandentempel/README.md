@@ -56,12 +56,23 @@ Er was geen apart brandbook beschikbaar. Kleuren en lettertype komen uit de CSS 
 - **Nieuwsbrief-inschrijving** uit de oude footer is weggelaten. Voeg zo nodig een nieuwsbriefblok toe (bijv. Mailchimp).
 - Pagina's die bij het ophalen niet bereikbaar waren, ontbreken. Draai de scripts opnieuw om aan te vullen.
 
+## Preview in één bestand (met shop)
+
+`scripts/combine.py` maakt van de preview één zelfstandig HTML-bestand met alle pagina's, afbeeldingen en het lettertype. Daarin zit ook een **shop met offertelijst** (`scripts/shop_parts.py`): alle producten met zoeken en filters, "Zet op offertelijst" op elke productpagina, een offertelijst met aantallen en een aanvraagformulier dat een e-mail aan info@vandentempel.nl opent.
+
+De shop bestaat alleen in de preview. Voor WordPress is dit later te bouwen met WooCommerce plus een offerteplugin (bijv. "Request a Quote for WooCommerce"), of met een eenvoudige eigen offertelijst.
+
 ## Opnieuw opbouwen
 
 ```bash
-# 1. Pagina's ophalen (crawl.py staat buiten de repo; elke pagina = md5(pad)[:12].html)
+# 1. Pagina's ophalen (elke pagina = md5(pad)[:12].html)
+python3 -I scripts/crawl.py <crawl-map> 1500
 # 2. Inhoud extraheren
 python3 -I scripts/extract.py <crawl-map> content.json
 # 3. Import, redirects en preview maken
-python3 -I scripts/build.py content.json . [--preview-media preview/media]
+python3 -I scripts/build.py content.json . --preview-all
+python3 -I scripts/media.py preview preview/media
+python3 -I scripts/build.py content.json . --preview-all --preview-media preview/media
+# 4. Alles in één HTML-bestand, met shop
+python3 -I scripts/combine.py preview vandentempel-website.html
 ```
