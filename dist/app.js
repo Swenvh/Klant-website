@@ -152,9 +152,10 @@ document.querySelectorAll('.plaats-projecten').forEach(section=>{
  const sel='.home-services .section-heading,.service-tile,.home-intro>*,.werkgebied>*,.projecten-balk>*,.steps article,.page-cta>*,.dienst-intro>*,.dienst-band>*,.dienst-donker>*,.dienst-plaatsen,.local-story article>*,.local-story figure,.plaats-projecten-kop>*,.carrousel>li,.project-kaart,.projecten-intro>*,.project-galerij>*,.project-voorna>*,.about-copy,.about-image,.contact>*,.direct-contact>*,.contact-extra>*,.quote-form,.offerte-side>*,.legal-page>*,.sitemap-lijst>*,.services-overview>*';
  const items=[...document.querySelectorAll(sel)].filter(el=>!el.closest('.hero,.header,.page-intro,.footer')&&!(el.matches('.project-kaart')&&el.closest('.carrousel')));
  if(!items.length)return;
- items.forEach(el=>{const i=[...el.parentElement.children].indexOf(el);el.style.transitionDelay=Math.min(i,5)*90+'ms';el.classList.add('infade');});
+ const direct=innerWidth<=600?new Set(document.querySelectorAll('.home-services .section-heading,.home-services .service-tile')):new Set();  // op telefoon de diensten onder de hero meteen tonen
+ items.forEach(el=>{if(direct.has(el))return;const i=[...el.parentElement.children].indexOf(el);el.style.transitionDelay=Math.min(i,5)*90+'ms';el.classList.add('infade');});
  const io=new IntersectionObserver(entries=>entries.forEach(e=>{if(e.isIntersecting){e.target.classList.add('is-in');io.unobserve(e.target);}}),{rootMargin:'0px 0px -8% 0px',threshold:.1});
- items.forEach(el=>io.observe(el));
+ items.forEach(el=>{if(!direct.has(el))io.observe(el);});
  // Wat al in beeld staat bij het laden, direct tonen zonder vertraging.
  requestAnimationFrame(()=>items.forEach(el=>{const r=el.getBoundingClientRect();if(r.top<innerHeight*.9&&r.bottom>0){el.style.transitionDelay='0ms';el.classList.add('is-in');io.unobserve(el);}}));
 })();

@@ -876,3 +876,4 @@ h1{font-size:clamp(60px,6.4vw,96px)}.page-home .hero h1{font-size:clamp(60px,6vw
 }
 /* Offerteknop in de homepage-hero: zelfde afronding als op telefoon. */
 .page-home .van-hero .hero-content .button{border-radius:6px}
+@media(max-width:600px){.van-hero .hero-content .button{min-height:34px;padding:5px 14px;font-size:12px}}
