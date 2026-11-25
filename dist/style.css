@@ -869,3 +869,8 @@ h1{font-size:clamp(60px,6.4vw,96px)}.page-home .hero h1{font-size:clamp(60px,6vw
 .mobile-nav a.mobile-nav-offerte:before{content:'';position:absolute;left:0;right:0;top:-12px;border-top:1px solid #ddd}
 .mobile-nav a.mobile-nav-bel{font-size:14px;border-top:0;margin-top:4px;padding-top:12px;color:#444}
 .mobile-nav:not([hidden]){padding-bottom:22px}
+/* WhatsApp-knop op telefoon overal klein en rond, zonder tekst (was alleen op de homepage zo). */
+@media(max-width:600px){
+ .whatsapp-float>span{display:none}
+ .whatsapp-float{width:54px;height:54px;min-height:0;padding:13px;border-radius:50%;gap:0}
+}
