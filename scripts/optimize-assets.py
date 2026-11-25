@@ -19,7 +19,7 @@ for path in sorted(assets.iterdir()):
         continue
     with Image.open(path) as original:
         image = ImageOps.exif_transpose(original).convert('RGB')
-        widths = sorted(set(min(w, image.width) for w in (480, 960, 1440, image.width)))
+        widths = sorted(set(min(w, image.width) for w in (480, 960, 1440, 1920, 2560, image.width)))
         variants = []
         for width in widths:
             target = assets / f'{path.stem}-responsive-{width}.webp'
@@ -30,7 +30,7 @@ for path in sorted(assets.iterdir()):
         manifest['/assets/' + path.name] = {'width': image.width, 'height': image.height, 'variants': variants}
 (assets / 'responsive-images.json').write_text(json.dumps(manifest))
 print(f'Optimized {len(manifest)} photo assets for responsive delivery.')
-for path in assets.glob('poppins-*.ttf'):
+for path in [*assets.glob('poppins-*.ttf'), *assets.glob('ebgaramond-*.ttf')]:
     if '-latin' in path.stem:
         continue
     target = path.with_name(path.stem + '-latin.ttf')

@@ -49,20 +49,11 @@ HD-logo zijn behouden. De mobiele achtergrond gebruikt hetzelfde WebP-bestand.
   verifieer vervolgens een openbare URL-prefixproperty en dien sitemap.xml in.
   Voor domeinverificatie is het door Google verstrekte DNS-TXT-record nodig.
 
-Het offerteformulier opent bewust een e-mailconcept. Het verstuurt niets via
-een server. De uitleg, knop en status maken duidelijk dat de bezoeker zelf
-de e-mail nog moet versturen; bellen en WhatsApp blijven direct beschikbaar.
-
-De aparte afsprakenplanner op `/afspraak/` slaat aanvragen wel op in D1.
-De voorkeursdatum en het dagdeel zijn geen gegarandeerde beschikbaarheid.
-De beheerpagina `/afspraken-beheer/` wordt alleen aan de server-side
-geautoriseerde beheerder getoond en staat niet in de sitemap of de openbare
-bestanden. `APPOINTMENT_ADMIN_EMAIL` wordt via Sites ingesteld op het account
-van de eigenaar. Wijzig die instelling pas bij een expliciete overdracht.
-De planner bevestigt alleen de opslag van de aanvraag. De beheerder kan na
-het kiezen van een definitieve datum en tijd expliciet een bevestigingsmail
-versturen. De Resend-koppeling is voorbereid maar vereist nog configuratie;
-zie EMAIL-SETUP.md. Een gewone statuswijziging stuurt geen bericht.
+Het offerteformulier stuurt de aanvraag naar de Pages Function `/api/offerte`
+(zie OFFERTE-SETUP.md): opslag in D1, mail naar Stef en
+een bevestiging aan de klant via Resend, spamcontrole met Turnstile. Zonder
+JavaScript werkt het formulier als gewone POST met een doorverwijzing naar
+`/bedankt/offerte/` (noindex). Bellen en WhatsApp blijven direct beschikbaar.
 
 De Worker verwerkt de planner-API en de afgeschermde beheerpagina; bestaande
 HTML, CSS, scripts en afbeeldingen blijven behouden als statische client.
@@ -120,9 +111,9 @@ afbeeldingen en de afgesproken scheiding tussen footer en hoofdmenu.
   e-mail, werkgebied, eigenaar, diensten en sociale profielen. Stef van Ommen
   heeft een gekoppelde Person-entiteit; de diensten staan als OfferCatalog en
   Service-entiteiten in JSON-LD.
-- Zichtbare vragen en antwoorden worden automatisch als FAQPage-schema
-  opgenomen. Het schema wordt uit dezelfde HTML opgebouwd, zodat het altijd
-  overeenkomt met wat de bezoeker ziet.
+- Veelgestelde vragen zijn op 23 november 2026 van alle pagina's gehaald
+  (besluit opdrachtgever); er is geen FAQPage-schema en geen vragenlijst in
+  llms.txt meer.
 - De Over Stef-pagina bevat een zichtbare feitenlijst met aanspreekpunt,
   vestigingsplaats, werkgebied, diensten en contact. Dit maakt kerninformatie
   begrijpelijk en citeerbaar zonder marketingclaims of verzonnen cijfers.

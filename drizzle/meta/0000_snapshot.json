@@ -1,11 +1,11 @@
 {
   "version": "6",
   "dialect": "sqlite",
-  "id": "98b62408-ea17-4e7c-b161-13c0699fa448",
+  "id": "aee1ad0c-5e1f-4cfe-8834-25b03b20ce08",
   "prevId": "00000000-0000-0000-0000-000000000000",
   "tables": {
-    "appointment_requests": {
-      "name": "appointment_requests",
+    "quote_requests": {
+      "name": "quote_requests",
       "columns": {
         "id": {
           "name": "id",
@@ -40,14 +40,8 @@
           "type": "text",
           "primaryKey": false,
           "notNull": true,
-          "autoincrement": false
-        },
-        "address": {
-          "name": "address",
-          "type": "text",
-          "primaryKey": false,
-          "notNull": true,
-          "autoincrement": false
+          "autoincrement": false,
+          "default": "''"
         },
         "city": {
           "name": "city",
@@ -63,27 +57,19 @@
           "notNull": true,
           "autoincrement": false
         },
-        "preferred_date": {
-          "name": "preferred_date",
+        "mail_owner_id": {
+          "name": "mail_owner_id",
           "type": "text",
           "primaryKey": false,
-          "notNull": true,
+          "notNull": false,
           "autoincrement": false
         },
-        "period": {
-          "name": "period",
+        "mail_customer_id": {
+          "name": "mail_customer_id",
           "type": "text",
           "primaryKey": false,
-          "notNull": true,
+          "notNull": false,
           "autoincrement": false
-        },
-        "notes": {
-          "name": "notes",
-          "type": "text",
-          "primaryKey": false,
-          "notNull": true,
-          "autoincrement": false,
-          "default": "''"
         },
         "status": {
           "name": "status",
@@ -109,15 +95,15 @@
         }
       },
       "indexes": {
-        "appointment_requests_request_key_unique": {
-          "name": "appointment_requests_request_key_unique",
+        "quote_requests_request_key_unique": {
+          "name": "quote_requests_request_key_unique",
           "columns": [
             "request_key"
           ],
           "isUnique": true
         },
-        "idx_appointment_requests_created": {
-          "name": "idx_appointment_requests_created",
+        "idx_quote_requests_created": {
+          "name": "idx_quote_requests_created",
           "columns": [
             "created_at"
           ],
@@ -129,8 +115,8 @@
       "uniqueConstraints": {},
       "checkConstraints": {}
     },
-    "appointment_request_limits": {
-      "name": "appointment_request_limits",
+    "request_limits": {
+      "name": "request_limits",
       "columns": {
         "bucket": {
           "name": "bucket",
@@ -158,6 +144,62 @@
       "indexes": {},
       "foreignKeys": {},
       "compositePrimaryKeys": {},
+      "uniqueConstraints": {},
+      "checkConstraints": {}
+    },
+    "site_events": {
+      "name": "site_events",
+      "columns": {
+        "day": {
+          "name": "day",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": true,
+          "autoincrement": false
+        },
+        "path": {
+          "name": "path",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": true,
+          "autoincrement": false
+        },
+        "event": {
+          "name": "event",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": true,
+          "autoincrement": false
+        },
+        "count": {
+          "name": "count",
+          "type": "integer",
+          "primaryKey": false,
+          "notNull": true,
+          "autoincrement": false,
+          "default": 0
+        }
+      },
+      "indexes": {
+        "idx_site_events_day": {
+          "name": "idx_site_events_day",
+          "columns": [
+            "day"
+          ],
+          "isUnique": false
+        }
+      },
+      "foreignKeys": {},
+      "compositePrimaryKeys": {
+        "site_events_day_path_event_pk": {
+          "columns": [
+            "day",
+            "path",
+            "event"
+          ],
+          "name": "site_events_day_path_event_pk"
+        }
+      },
       "uniqueConstraints": {},
       "checkConstraints": {}
     }

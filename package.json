@@ -3,13 +3,18 @@
   "private": true,
   "type": "module",
   "scripts": {
-    "build": "python scripts/optimize-assets.py && python scripts/generate-pages.py && node scripts/build-worker.mjs",
+    "build": "python scripts/optimize-assets.py && python scripts/generate-pages.py",
+    "check": "python scripts/validate-site.py && python scripts/check-images.py dist && node --test tests/offerte.test.mjs tests/seo.test.mjs",
+    "dev": "wrangler pages dev dist",
     "db:generate": "drizzle-kit generate",
-    "check": "python scripts/validate-site.py && node --test tests/appointments.test.mjs tests/seo.test.mjs",
+    "db:migrate:local": "wrangler d1 migrations apply van-ommen-schilderwerken --local",
+    "db:migrate": "wrangler d1 migrations apply van-ommen-schilderwerken --remote",
+    "deploy": "npm run build && npm run check && wrangler pages deploy dist",
     "preview": "python scripts/build-preview.py"
   },
   "devDependencies": {
     "drizzle-kit": "^0.31.11",
-    "drizzle-orm": "^0.45.3"
+    "drizzle-orm": "^0.45.3",
+    "wrangler": "^4.22.0"
   }
 }

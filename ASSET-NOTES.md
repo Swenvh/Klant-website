@@ -47,3 +47,10 @@ Prompt: Preserve white Volkswagen Transporter, side profile facing right, dark b
 
 ### Prompt HD-logo (built-in imagegen)
 Restore the supplied Van Ommen Schilderwerken logo at the highest available resolution. Keep the same black crown/paintbrush icon, serif main wordmark "VAN OMMEN" and spaced subtitle "SCHILDERWERKEN". Preserve identity and geometry; no redesign, added details, shadows or textures. Wide tightly composed horizontal lockup on pure white. Crisp smooth black contours. Input: dist/assets/logo.png. Delivered: 2172 × 724 px. Original generated result retained in the session; lossless WebP conversion for website delivery.
+
+
+## Van hero v3 (2026-11-22)
+Nieuwe generatie van de hero, aangeleverd door de opdrachtgever: dezelfde bus van opzij in het winterlandschap bij zonsondergang, bus iets groter en meer naar links. Bron 1672x941 (dist/assets/van-ommen-bus-hero.png is de Lanczos-opschaling naar 3840x2160, geen native 4K). Beeld blijft een AI-bewerking van de busfoto met het echte logo.
+
+## Behangwerk aan het werk (2026-11-22)
+`behangwerk-aan-het-werk.jpg` (1086x1448): door de opdrachtgever aangeleverde foto van een schilder in Van Ommen-werkkleding die behang met citroenmotief aanbrengt. Gebruikt in de werkgebied-sectie op de homepage. Gezicht niet zichtbaar.

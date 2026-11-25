@@ -1,0 +1,18 @@
+# Cloudflare Pages: statische site uit dist/ plus de Functions in functions/ (offerteformulier en metingen).
+name = "van-ommen-schilderwerken"
+compatibility_date = "2025-06-17"
+pages_build_output_dir = "dist"
+
+[[d1_databases]]
+binding = "DB"
+database_name = "van-ommen-schilderwerken"
+database_id = "VUL-IN-NA-WRANGLER-D1-CREATE"
+migrations_dir = "drizzle"
+
+[vars]
+MAIL_TO = "info@vanommenschilderwerken.nl"
+MAIL_FROM = "Van Ommen Schilderwerken <website@vanommenschilderwerken.nl>"
+
+# Geheimen (niet in dit bestand): RESEND_API_KEY en TURNSTILE_SECRET.
+# Zet ze met: npx wrangler pages secret put RESEND_API_KEY
+# Lokaal: kopieer .dev.vars.example naar .dev.vars.
