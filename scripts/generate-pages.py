@@ -400,7 +400,7 @@ def fotostrook():
  """Doorlopende, vanzelf bewegende strook met projectfoto's (contactpagina). Twee keer dezelfde reeks voor een naadloze lus; CSS-animatie, pauze bij hover, stil bij 'minder beweging'."""
  fotos=[(f[0],f[1],pp['titel']) for i in range(3) for pp in PROJECTPAGINAS for f in pp['fotos'][i:i+1]]  # om de beurt per project, zodat buren verschillen
  items=''.join('<li><img src="/assets/'+f+'" alt="'+escape(a)+'" width="1200" height="1600" loading="lazy" decoding="async"></li>' for f,a,t in fotos)
- return ('<section class="fotostrook" aria-labelledby="fotostrook-title"><div class="fotostrook-kop section-pad"><p class="eyebrow">ONS WERK</p><h2 id="fotostrook-title">Foto\'s uit onze projecten</h2><a class="text-link" href="/projecten/">Bekijk alle projecten <span>&rarr;</span></a></div>'
+ return ('<section class="fotostrook" aria-label="Foto\'s uit onze projecten">'
   '<div class="fotostrook-baan"><ul class="fotostrook-reeks">'+items+'</ul><ul class="fotostrook-reeks" aria-hidden="true">'+items+'</ul></div></section>')
 
 def project_carousel():
