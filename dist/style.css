@@ -881,3 +881,13 @@ h1{font-size:clamp(60px,6.4vw,96px)}.page-home .hero h1{font-size:clamp(60px,6vw
 /* Telefoon: offerteknop in de hero definitief klein (wint van de oudere .page-home-regel). */
 @media(max-width:600px){.page-home .van-hero .hero-content .button,.page-home .van-hero .hero-content a.button{min-height:30px;padding:4px 12px;font-size:11px;border-radius:5px;margin-top:0}}
 @media(max-width:600px){.page-home .van-hero .hero-content .button,.page-home .van-hero .hero-content a.button{min-height:36px;padding:6px 16px;font-size:13px}}
+/* Telefoon: offerteknop in de hero met dezelfde kwaststreek-animatie als de knop rechtsboven op desktop. */
+@media(max-width:600px){
+ .page-home .van-hero .hero-content .button,.page-home .van-hero .hero-content a.button{overflow:hidden;isolation:isolate;gap:8px;background:#171717;color:#fff;border:1px solid #171717;box-shadow:none}
+ .page-home .van-hero .hero-content .button>span,.page-home .van-hero .hero-content a.button{font-weight:600}
+ .page-home .van-hero .hero-content .button:before{content:'';position:absolute;inset:-2px -18% -2px -2px;z-index:-1;background:#fff;clip-path:polygon(0 0,86% 0,91% 9%,86% 18%,93% 27%,87% 36%,94% 45%,88% 54%,95% 63%,88% 72%,94% 81%,87% 90%,92% 100%,0 100%);transform:translateX(-104%);animation:kwaststreek 4s cubic-bezier(.25,.7,.25,1) infinite}
+ .page-home .van-hero .hero-content .button:after{content:'';width:11px;height:18px;flex:none;background:#fff;-webkit-mask:url('/assets/kwast.png') center/contain no-repeat;mask:url('/assets/kwast.png') center/contain no-repeat;animation:kwaststreek-kwast 4s cubic-bezier(.25,.7,.25,1) infinite}
+ .page-home .van-hero .hero-content .button>span,.page-home .van-hero .hero-content .button:after{mix-blend-mode:difference;color:#fff}
+}
+@media(max-width:600px) and (prefers-reduced-motion:reduce){.page-home .van-hero .hero-content .button:before,.page-home .van-hero .hero-content .button:after{animation:none}}
+.page-home .van-hero .hero-content .button>span{font-size:inherit;line-height:inherit;font-weight:600}
