@@ -856,3 +856,4 @@ h1{font-size:clamp(60px,6.4vw,96px)}.page-home .hero h1{font-size:clamp(60px,6vw
  .page-home .van-hero h1{font-size:27px;line-height:1.12}
  .van-hero .hero-content .button{position:absolute;left:var(--pad);bottom:16px;margin:0;z-index:2;min-height:42px;padding:8px 18px;font-size:14px;border:1px solid #171717;box-shadow:0 4px 14px #0003}
 }
+@media(max-width:600px){.van-hero .hero-content .button{min-height:38px;padding:6px 16px;font-size:13px;border-radius:6px;bottom:18px}}
