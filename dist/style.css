@@ -878,3 +878,5 @@ h1{font-size:clamp(60px,6.4vw,96px)}.page-home .hero h1{font-size:clamp(60px,6vw
 .page-home .van-hero .hero-content .button{border-radius:6px}
 @media(max-width:600px){.van-hero .hero-content .button{min-height:34px;padding:5px 14px;font-size:12px}}
 @media(max-width:600px){.van-hero .hero-content .button{min-height:30px;padding:4px 12px;font-size:11px;border-radius:5px}}
+/* Telefoon: offerteknop in de hero definitief klein (wint van de oudere .page-home-regel). */
+@media(max-width:600px){.page-home .van-hero .hero-content .button,.page-home .van-hero .hero-content a.button{min-height:30px;padding:4px 12px;font-size:11px;border-radius:5px;margin-top:0}}
