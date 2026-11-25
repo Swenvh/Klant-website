@@ -158,3 +158,13 @@ document.querySelectorAll('.plaats-projecten').forEach(section=>{
  // Wat al in beeld staat bij het laden, direct tonen zonder vertraging.
  requestAnimationFrame(()=>items.forEach(el=>{const r=el.getBoundingClientRect();if(r.top<innerHeight*.9&&r.bottom>0){el.style.transitionDelay='0ms';el.classList.add('is-in');io.unobserve(el);}}));
 })();
+// Keuzeknoppen in het offerteformulier: nog een keer tikken op de gekozen optie maakt de keuze weer ongedaan.
+(()=>{
+ const labels=document.querySelectorAll('label.keuze');
+ if(!labels.length)return;
+ labels.forEach(l=>{
+  const r=l.querySelector('input[type=radio]');if(!r)return;
+  l.addEventListener('pointerdown',()=>{r.dataset.was=r.checked?'1':'';});
+  r.addEventListener('click',()=>{if(r.dataset.was==='1'){r.checked=false;r.dataset.was='';r.dispatchEvent(new Event('change',{bubbles:true}));}});
+ });
+})();
