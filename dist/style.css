@@ -767,3 +767,23 @@ h1{font-size:clamp(60px,6.4vw,96px)}.page-home .hero h1{font-size:clamp(60px,6vw
  .van-hero .hero-content>p:not(.eyebrow){font-size:16px;margin-top:16px}
  .van-hero .hero-content .button{margin-top:22px;width:100%;justify-content:center}
 }
+/* Hero op telefoon en tablet, versie 2 (2026-11-25): busfoto als achtergrond over het hele blok, tekst eroverheen onderin. */
+@media(max-width:1000px){
+ .page-home .van-hero{display:block;position:relative;isolation:isolate;height:calc(100svh - 112px);min-height:540px;max-height:760px;overflow:hidden;background:#171717}
+ .van-hero .hero-media{position:absolute;inset:0;z-index:-2;order:initial;height:100%;background:#171717}
+ .van-hero .hero-media img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:52% 50%;transform:none}
+ .page-home .van-hero:before{display:block;position:absolute;inset:0;z-index:-1;background:linear-gradient(180deg,rgba(0,0,0,.35) 0%,rgba(0,0,0,.05) 35%,rgba(0,0,0,.15) 55%,rgba(0,0,0,.82) 100%)}
+ .page-home .van-hero .hero-content{position:relative;z-index:1;display:flex;flex-direction:column;justify-content:flex-end;align-items:flex-start;order:initial;height:100%;padding:30px var(--pad) 34px}
+ .page-home .van-hero h1{text-shadow:0 2px 14px #0006}
+ .van-hero .hero-content .button{width:100%;justify-content:center}
+}
+@media(max-width:600px){
+ .page-home .van-hero{height:calc(100svh - 103px);min-height:520px;max-height:720px}
+ .page-home .van-hero .hero-content{padding:24px var(--pad) 28px}
+ .page-home .van-hero h1{font-size:clamp(36px,10vw,48px)}
+}
+@media(max-width:1000px){
+ .van-hero .hero-media img{object-position:64% 50%}
+ .page-home .van-hero:before{background:linear-gradient(180deg,rgba(0,0,0,.38) 0%,rgba(0,0,0,.06) 30%,rgba(0,0,0,.12) 48%,rgba(0,0,0,.62) 70%,rgba(0,0,0,.9) 100%)}
+}
+@media(max-width:1000px){.van-hero .hero-media img{object-position:84% 50%}}
