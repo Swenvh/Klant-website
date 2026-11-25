@@ -836,3 +836,13 @@ h1{font-size:clamp(60px,6.4vw,96px)}.page-home .hero h1{font-size:clamp(60px,6vw
  h2{font-size:32px}
  .home-services .section-heading .text-link,.section-heading .text-link{font-size:15px}
 }
+/* Telefoon, definitief: knop direct onder de kop, in de lucht boven de bus; foto tot de onderrand; geen witte strook. */
+@media(max-width:600px){
+ .page-home .van-hero{aspect-ratio:390/322;background:#171717}
+ .van-hero .hero-media{inset:0;height:100%;background:#171717}
+ .van-hero .hero-media img{object-position:50% 100%}
+ .page-home .van-hero:before{bottom:0;background:linear-gradient(180deg,rgba(0,0,0,.6) 0%,rgba(0,0,0,.32) 40%,rgba(0,0,0,0) 58%)}
+ .page-home .van-hero .hero-content{padding:14px var(--pad) 0}
+ .page-home .van-hero h1{font-size:27px;line-height:1.12}
+ .van-hero .hero-content .button{position:static;margin-top:10px;min-height:42px;padding:8px 18px;font-size:14px;border:1px solid #fff;box-shadow:0 4px 14px #0005}
+}
