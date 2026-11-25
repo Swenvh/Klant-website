@@ -25,7 +25,7 @@ for html in sorted(dist.rglob('index.html')):
             r1=int(attrs['width'])/int(attrs['height']); r2=w/h
             if abs(r1-r2)/r2>0.02: problems.append((page,f'verhouding klopt niet (attr {attrs["width"]}x{attrs["height"]}, bestand {w}x{h})',src))
         else: problems.append((page,'geen width/height',src))
-        if attrs.get('fetchpriority')!='high' and attrs.get('loading')!='lazy': problems.append((page,'geen loading=lazy',src))
+        if attrs.get('fetchpriority')!='high' and attrs.get('loading') not in ('lazy','eager'): problems.append((page,'geen loading=lazy of eager',src))
         for part in attrs.get('srcset','').split(','):
             part=part.strip()
             if not part: continue

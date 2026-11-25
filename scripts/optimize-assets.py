@@ -25,7 +25,7 @@ for path in sorted(assets.iterdir()):
             target = assets / f'{path.stem}-responsive-{width}.webp'
             resized = image.resize((width, round(width * image.height / image.width)), Image.Resampling.LANCZOS)
             if not target.exists() or target.stat().st_mtime < path.stat().st_mtime:
-                resized.save(target, 'WEBP', quality=86, method=6)
+                resized.save(target, 'WEBP', quality=80, method=6)
             variants.append({'src': '/assets/' + target.name, 'width': width})
         manifest['/assets/' + path.name] = {'width': image.width, 'height': image.height, 'variants': variants}
 (assets / 'responsive-images.json').write_text(json.dumps(manifest))
@@ -34,7 +34,8 @@ for path in [*assets.glob('poppins-*.ttf'), *assets.glob('ebgaramond-*.ttf')]:
     if '-latin' in path.stem:
         continue
     target = path.with_name(path.stem + '-latin.ttf')
-    if target.exists() and target.stat().st_mtime >= path.stat().st_mtime:
+    woff2 = path.with_name(path.stem + '-latin.woff2')
+    if target.exists() and woff2.exists() and min(target.stat().st_mtime, woff2.stat().st_mtime) >= path.stat().st_mtime:
         continue
     font = TTFont(path)
     options = subset.Options()
@@ -42,4 +43,6 @@ for path in [*assets.glob('poppins-*.ttf'), *assets.glob('ebgaramond-*.ttf')]:
     sub.populate(unicodes=list(range(0x20, 0x250)) + list(range(0x2000, 0x2070)) + [0x20ac])
     sub.subset(font)
     font.save(target)
+    font.flavor = 'woff2'  # zelfde subset, ongeveer half zo groot (vereist brotli in de bouwomgeving)
+    font.save(woff2)
 print('Subset local fonts for Dutch and Western European text.')

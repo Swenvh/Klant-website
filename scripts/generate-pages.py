@@ -84,8 +84,8 @@ def render(route,title,desc,content,active,home=False,gallery=False,private=Fals
  s.xpath('//meta[@name="description"]')[0].set('content',desc)
  head=s.find('head')
  head.append(html.Element('meta',name='author',content='Van Ommen Schilderwerken'))
- head.append(html.Element('link',rel='preload',attrib={'as':'font','type':'font/ttf','href':'/assets/poppins-400-latin.ttf','crossorigin':'anonymous'}))
- head.append(html.Element('link',rel='preload',attrib={'as':'font','type':'font/ttf','href':'/assets/ebgaramond-500-latin.ttf','crossorigin':'anonymous'}))
+ head.append(html.Element('link',rel='preload',attrib={'as':'font','type':'font/woff2','href':'/assets/poppins-400-latin.woff2','crossorigin':'anonymous'}))
+ head.append(html.Element('link',rel='preload',attrib={'as':'font','type':'font/woff2','href':'/assets/ebgaramond-500-latin.woff2','crossorigin':'anonymous'}))
  canonical=html.Element('link',rel='canonical',href=ORIGIN+route);head.append(canonical)
  social_image=ORIGIN+'/assets/van-ommen-og.jpg'
  for name,value in [('robots','index, follow, max-image-preview:large' if SEO['indexable'] and indexable and not private else 'noindex, nofollow'),('twitter:card','summary_large_image'),('twitter:image',social_image),('twitter:image:alt','Bedrijfsbus van Van Ommen Schilderwerken'),('twitter:title',title+' | Van Ommen Schilderwerken'),('twitter:description',desc)]:
@@ -172,7 +172,8 @@ def render(route,title,desc,content,active,home=False,gallery=False,private=Fals
    # The modal script changes its image dynamically; don't pin a stale srcset.
    if img.get('id')!='photo-image':
     img.set('srcset',', '.join(f'{v["src"]} {v["width"]}w' for v in info['variants']))
-    img.set('sizes','100vw' if img.get('fetchpriority')=='high' else '(max-width: 700px) 100vw, 50vw')
+    # Op telefoons (3x pixeldichtheid) volstaat de 960px-variant; '70vw' laat de browser die kiezen in plaats van 1440px.
+    img.set('sizes','(max-width: 700px) 70vw, 100vw' if img.get('fetchpriority')=='high' else '(max-width: 700px) 70vw, 50vw')
     img.set('src',[v for v in info['variants'] if v['width']<=1920][-1]['src'])
  if not gallery:
   dialog=s.get_element_by_id('photo-dialog');dialog.getparent().remove(dialog)
@@ -413,7 +414,8 @@ def projecten_kaarten():
  kaarten=[]
  for i,p in enumerate(PROJECTEN):
   plaats='<span class="project-kaart-dienst">'+escape(p['plaats'])+'</span>' if p.get('plaats') else ''
-  binnen=f'<img src="/assets/{p["image"]}" alt="{escape(p["alt"])}" width="1200" height="800" loading="lazy"><span class="project-kaart-tekst"><strong>{escape(p["titel"])}</strong>{plaats}</span>'
+  laad='eager" fetchpriority="high' if i==0 else 'lazy'
+  binnen=f'<img src="/assets/{p["image"]}" alt="{escape(p["alt"])}" width="1200" height="800" loading="{laad}"><span class="project-kaart-tekst"><strong>{escape(p["titel"])}</strong>{plaats}</span>'
   klasse='project-kaart'+(' '+p['klasse'] if p.get('klasse') else '')
   if p.get('href'):kaarten.append(f'<a class="{klasse}" href="{p["href"]}">{binnen}</a>')
   else:kaarten.append(f'<button class="{klasse}" type="button" data-photo="/assets/{p["image"]}" data-title="{escape(p["titel"])}" aria-label="{escape(p["titel"])}, vergroot de foto">{binnen}</button>')
@@ -422,7 +424,7 @@ def projecten_kaarten():
 content=projecten_kaarten()+cta()
 render('/projecten/','Projecten','Bekijk echte foto’s van schilderprojecten van Van Ommen Schilderwerken, van voorbereiding tot afwerking.',content,'/projecten/',gallery=True)
 for pp in PROJECTPAGINAS:
- galerij=''.join(f'<button class="project-kaart" type="button" data-photo="/assets/{img}" data-title="{escape(pp["titel"])}, foto {i+1}" aria-label="Foto {i+1} van {escape(pp["titel"].lower())}, vergroot de foto"><img src="/assets/{img}" alt="{escape(alt)}" width="1200" height="1600" loading="lazy"></button>' for i,(img,alt) in enumerate(pp['fotos']))
+ galerij=''.join(f'<button class="project-kaart" type="button" data-photo="/assets/{img}" data-title="{escape(pp["titel"])}, foto {i+1}" aria-label="Foto {i+1} van {escape(pp["titel"].lower())}, vergroot de foto"><img src="/assets/{img}" alt="{escape(alt)}" width="1200" height="1600" loading="{"eager" if i==0 else "lazy"}"></button>' for i,(img,alt) in enumerate(pp['fotos']))
  tekst=''.join('<p>'+t+'</p>' for t in pp['tekst'])
  voorna=''
  if pp.get('voorna'):
@@ -463,7 +465,7 @@ render('/contact/','Contact','Neem contact op met Stef van Ommen voor uw schilde
 for place in LOCATIONS:
  route='/'+place['slug']+'/'
  local=intro('Schilder '+place['name'],'Schilder in '+place['name'],escape(place['intro']))
- local+='<section class="local-story section-pad section-space"><article><h2>'+escape(place['heading'])+'</h2><p>'+escape(place['text'])+'</p><h3>'+escape(place['focus'])+'</h3><p>'+escape(place['focus_text'])+'</p><h3>'+escape(place['local_heading'])+'</h3><p>'+escape(place['local'])+'</p>'+('<p>'+place['extra']+'</p>' if place.get('extra') else '')+'<div class="article-actions"><a class="button" href="/offerte/">Offerte aanvragen</a><a class="text-link" href="tel:+31624996700">Bel Stef: 06 24 99 67 00</a></div></article><figure><img src="/assets/'+place['image']+'" alt="'+escape(place['alt'])+'" width="900" height="1200" loading="lazy"><figcaption>Een voorbeeld van ons schilderwerk. <a href="/projecten/">Bekijk onze projecten</a>.</figcaption></figure></section>'
+ local+='<section class="local-story section-pad section-space"><article><h2>'+escape(place['heading'])+'</h2><p>'+escape(place['text'])+'</p><h3>'+escape(place['focus'])+'</h3><p>'+escape(place['focus_text'])+'</p><h3>'+escape(place['local_heading'])+'</h3><p>'+escape(place['local'])+'</p>'+('<p>'+place['extra']+'</p>' if place.get('extra') else '')+'<div class="article-actions"><a class="button" href="/offerte/">Offerte aanvragen</a><a class="text-link" href="tel:+31624996700">Bel Stef: 06 24 99 67 00</a></div></article><figure><img src="/assets/'+place['image']+'" alt="'+escape(place['alt'])+'" width="900" height="1200" loading="eager" fetchpriority="high"><figcaption>Een voorbeeld van ons schilderwerk. <a href="/projecten/">Bekijk onze projecten</a>.</figcaption></figure></section>'
  local+=project_carousel()
  local+='<section class="home-services section-pad"><div class="section-heading"><h2>Schilderdiensten in '+escape(place['name'])+'</h2></div>'+cards(True)+'</section>'+serial(section('werkwijze'))
  local+=cta()
