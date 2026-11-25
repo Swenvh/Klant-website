@@ -817,3 +817,12 @@ h1{font-size:clamp(60px,6.4vw,96px)}.page-home .hero h1{font-size:clamp(60px,6vw
  .van-hero .hero-content .button{margin-top:12px;min-height:44px;padding:9px 20px}
 }
 @media(max-width:600px){.page-home .van-hero{aspect-ratio:390/312}.van-hero .hero-media img{object-position:50% 100%}.page-home .van-hero .hero-content{padding-top:16px}}
+/* Telefoon: foto iets omhoog (eindigt 26px boven de onderrand, sneeuw loopt over in wit), knop linksonder op bandhoogte. */
+@media(max-width:600px){
+ .page-home .van-hero{aspect-ratio:390/338;background:#fff}
+ .van-hero .hero-media{inset:0 0 26px 0;height:auto;background:#fff}
+ .van-hero .hero-media img{object-position:50% 100%}
+ .page-home .van-hero:before{bottom:26px;background:linear-gradient(180deg,rgba(0,0,0,.62) 0%,rgba(0,0,0,.28) 38%,rgba(0,0,0,0) 60%)}
+ .page-home .van-hero .hero-content{position:static;padding:16px var(--pad) 0}
+ .van-hero .hero-content .button{position:absolute;left:var(--pad);bottom:14px;margin:0;z-index:2;box-shadow:0 6px 18px #0004}
+}
