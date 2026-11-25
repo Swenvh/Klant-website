@@ -829,3 +829,10 @@ h1{font-size:clamp(60px,6.4vw,96px)}.page-home .hero h1{font-size:clamp(60px,6vw
 @media(max-width:600px){.van-hero .hero-media{inset:0 0 44px 0}.page-home .van-hero:before{bottom:44px}.van-hero .hero-content .button{bottom:26px}}
 @media(max-width:600px){.van-hero .hero-media{inset:0 0 74px 0}.page-home .van-hero:before{bottom:74px}.van-hero .hero-content .button{bottom:14px;box-shadow:none;border:1px solid #171717}}
 .menu-toggle{color:#171717}/* Safari kleurt knoptekst anders blauw */
+/* Telefoon: koppen en eyebrow onder de hero iets kleiner. */
+@media(max-width:600px){
+ .home-services .section-heading .eyebrow,.section-heading .eyebrow{font-size:11px;letter-spacing:.12em}
+ .home-services .section-heading h2{font-size:31px}
+ h2{font-size:32px}
+ .home-services .section-heading .text-link,.section-heading .text-link{font-size:15px}
+}
