@@ -175,6 +175,12 @@ def render(route,title,desc,content,active,home=False,gallery=False,private=Fals
     # Op telefoons (3x pixeldichtheid) volstaat de 960px-variant; '70vw' laat de browser die kiezen in plaats van 1440px.
     img.set('sizes','(max-width: 700px) 70vw, 100vw' if img.get('fetchpriority')=='high' else '(max-width: 700px) 70vw, 50vw')
     img.set('src',[v for v in info['variants'] if v['width']<=1920][-1]['src'])
+   # Homepage-hero: op telefoons een eigen, staande uitsnede (bus hoger, extra sneeuw onderin voor de knop).
+   if img.get('fetchpriority')=='high' and 'van-ommen-bus-hero' in (img.get('src') or '') and IMAGE_MAP.get('/assets/van-ommen-bus-hero-mobiel.jpg'):
+    mob=IMAGE_MAP['/assets/van-ommen-bus-hero-mobiel.jpg']
+    picture=html.Element('picture');img.addprevious(picture)
+    source=html.Element('source',media='(max-width: 600px)',srcset=', '.join(f'{v["src"]} {v["width"]}w' for v in mob['variants']),sizes='100vw')
+    picture.append(source);picture.append(img)
  if not gallery:
   dialog=s.get_element_by_id('photo-dialog');dialog.getparent().remove(dialog)
  destination=OUT/'.openai/admin-page.html' if private else OUT/route.strip('/')/'index.html' if route!='/' else OUT/'index.html'
