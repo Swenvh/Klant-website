@@ -228,7 +228,7 @@ STERKE_PUNTEN=['Erkend leerbedrijf (SBB)','Gratis & vrijblijvende offerte','Eén
 #  'Beoordeeld met ... op Google'
 SERVICE_LAYOUT={
  'binnenschilderwerk':{
-  'hero':('binnenschilderwerk-gele-kamer.jpg','Doorkijk naar een net geschilderde gele kamer met wit plafond'),
+  'hero':('binnenschilderwerk-blauwe-kamer.jpg','Slaapkamer met blauw geschilderde wanden, wit plafond en witte plinten'),
   'eyebrow':'BINNENSCHILDERWERK','kop':'Binnenschilderwerk in Oldebroek en omgeving',
   'intro':['Muren die dof zijn geworden, een plafond met vlekken, deuren en kozijnen waar de lak van afbrokkelt. Binnen slijt schilderwerk langzaam, en u ziet het pas als u er goed naar kijkt. Van Ommen Schilderwerken uit Oldebroek schildert het binnenwerk van woningen en bedrijfspanden, van één kamer tot een heel huis.','Stef komt vrijblijvend langs, bekijkt wat er nodig is en maakt een offerte. Bel 06 24 99 67 00 of vraag online een offerte aan.'],
   'banden':[
