@@ -36,11 +36,11 @@ const quoteWhatsApp=document.querySelector('#quote-whatsapp');
 if(quoteForm&&quoteWhatsApp){
  const updateWhatsApp=()=>{
   const d=new FormData(quoteForm);
-  const parts=['Beste Stef, graag bespreek ik mijn schilderwerk.'];
+  const parts=['Hey Stef 👋, graag bespreek ik mijn schilderwerk.'];
   for(const [key,label] of [['name','Naam'],['city','Woonplaats'],['service','Werkzaamheden'],['message','Mijn wensen']]){
    const value=String(d.get(key)||'').trim();if(value)parts.push(label+': '+value);
   }
-  quoteWhatsApp.href='https://wa.me/31624996700?text='+encodeURIComponent(parts.join('\n\n'));
+  quoteWhatsApp.href='https://api.whatsapp.com/send?phone=31624996700&text='+encodeURIComponent(parts.join('\n\n'));
  };
  quoteForm.addEventListener('input',updateWhatsApp);quoteForm.addEventListener('change',updateWhatsApp);quoteWhatsApp.addEventListener('click',updateWhatsApp);
 }
@@ -112,7 +112,7 @@ document.addEventListener('click',event=>{
  const link=event.target.closest('a[href]');if(!link)return;
  const href=link.getAttribute('href')||'';
  if(href.startsWith('tel:'))window.vosTrack('phone_click');
- else if(href.includes('wa.me/'))window.vosTrack('whatsapp_click');
+ else if(href.includes('wa.me/')||href.includes('api.whatsapp.com/'))window.vosTrack('whatsapp_click');
  else if(href.startsWith('/afspraak'))window.vosTrack('appointment_cta');
  else if(href.includes('/contact/')&&href.includes('offerte'))window.vosTrack('quote_cta');
 });
