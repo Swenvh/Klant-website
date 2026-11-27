@@ -363,11 +363,11 @@ PROJECTPAGINAS=[
    ('koopman-4.jpg','Doorgang met stalen glazen deuren naast een zwarte keukenkast'),
    ('koopman-5.jpg','Kantine met zwarte pantry, witte deur en zwart systeemplafond boven de visgraatvloer'),
   ]},
- {'slug':'buitenschilderwerk-particuliere-woning','titel':'Buitenschilderwerk particuliere woning','plaats':'','label':'Buitenschilderwerk','dienst_url':'/diensten/buitenschilderwerk/','dienst_naam':'Buitenschilderwerk',
-  'intro':'Een particuliere woning met een nieuwe buitenkant: de gevel strak wit, de kozijnen, het gevelhout en de plint donker. Bekijk het verschil tussen voor en na.',
+ {'slug':'particulier-buitenschilderwerk','titel':'Particulier buitenschilderwerk','plaats':'Nunspeet','label':'Buitenschilderwerk','dienst_url':'/diensten/buitenschilderwerk/','dienst_naam':'Buitenschilderwerk',
+  'intro':'Een particuliere woning in Nunspeet met een nieuwe buitenkant: de gevel strak wit, de kozijnen, het gevelhout en de plint donker. Bekijk het verschil tussen voor en na.',
   'kop':'',
   'tekst':[],
-  'description':'Bekijk hoe een particuliere woning een strakke witte gevel met donkere kozijnen kreeg. Voor-en-nafoto’s van buitenschilderwerk door Van Ommen Schilderwerken.',
+  'description':'Bekijk hoe een particuliere woning in Nunspeet een strakke witte gevel met donkere kozijnen kreeg. Voor-en-nafoto’s van buitenschilderwerk door Van Ommen Schilderwerken.',
   'voorna':(('woning-gevel-voor.jpg','Hoek van de woning vóór het werk: bakstenen gevel, donkere kozijnen en uitbouw met verticale gevelbekleding'),('woning-gevel-hoek-na.jpg','Dezelfde hoek na het werk: strak witte gevel met donkere kozijnen, dakranden en gevelbekleding')),
   'fotos':[
    ('woning-gevel-na.jpg','Voorgevel van de woning na het werk: strak wit gestucte gevel, donkere plint, donkere kozijnen en houten voordeur'),
@@ -399,6 +399,14 @@ PROJECTPAGINAS=[
    ('allround-zonwering-6.jpg','Twee hoge ramen met zwart geschilderde kozijnen in een zandkleurige wand, met visgraatvloer'),
    ('allround-zonwering-7.jpg','Twee witte deuren met witte kozijnen naast een grijs geschilderde wand, met visgraatvloer'),
    ('allround-zonwering-8.jpg','Gang met zandkleurige wanden, witte plinten en doorkijk naar een achterliggende ruimte, met visgraatvloer'),
+  ]},
+ {'slug':'melktap','titel':'Project Melktap','plaats':'Elburg','label':'Buitenschilderwerk','dienst_url':'/diensten/buitenschilderwerk/','dienst_naam':'Buitenschilderwerk',
+  'intro':'Buitenschilderwerk aan een woning in Elburg: de zwarte houten geveldelen en de witte kozijnen en dakranden, afgestemd op het metselwerk en het oranje pannendak.',
+  'kop':'',
+  'tekst':[],
+  'description':'Bekijk het buitenschilderwerk van Van Ommen Schilderwerken bij project Melktap in Elburg: zwarte houten geveldelen en witte kozijnen en dakranden.',
+  'fotos':[
+   ('melktap-1.jpg','Woning met zwarte houten topgevels, witte kozijnen en dakranden, rode bakstenen gevel en oranje pannendak, gezien vanaf de oprit'),
   ]},
 ]
 PROJECTEN=[{'titel':pp['titel'],'plaats':pp['plaats'],'image':pp['fotos'][0][0],'alt':pp['fotos'][0][1],'href':'/projecten/'+pp['slug']+'/'} for pp in PROJECTPAGINAS]  # losse foto's zonder project zijn op 2026-11-23 weggehaald (wens opdrachtgever)

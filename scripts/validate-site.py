@@ -16,7 +16,7 @@ for file in sorted(out.rglob('index.html')):
  route='/'+str(file.parent.relative_to(out)).strip('.')
  if route!='/':route=route.rstrip('/')+'/'
  documents[route]=html.fromstring(file.read_text())
-assert len(documents)==22+len(LOCATIONS)
+assert len(documents)==23+len(LOCATIONS)
 titles=set()
 descriptions=set()
 for route,doc in documents.items():
