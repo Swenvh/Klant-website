@@ -374,7 +374,7 @@ PROJECTPAGINAS=[
    ('koopman-4.jpg','Doorgang met stalen glazen deuren naast een zwarte keukenkast'),
    ('koopman-5.jpg','Kantine met zwarte pantry, witte deur en zwart systeemplafond boven de visgraatvloer'),
   ]},
- {'slug':'gemeente-oldebroek','titel':'Gemeente Oldebroek','plaats':'Oldebroek','label':'Zakelijk & VvE-schilderwerk','dienst_url':'/diensten/zakelijk-vve/','dienst_naam':'Zakelijk & VvE-schilderwerk',
+ {'slug':'lakwerk-gemeente-oldebroek','titel':'Lakwerk Gemeente Oldebroek','plaats':'Oldebroek','label':'Zakelijk & VvE-schilderwerk','dienst_url':'/diensten/zakelijk-vve/','dienst_naam':'Zakelijk & VvE-schilderwerk',
   'intro':'De houten receptiebalie in het gemeentehuis van Oldebroek opnieuw afgewerkt: geschuurd en in een donkere kleur gebeitst, terwijl de hal in gebruik bleef.',
   'kop':'',
   'tekst':[],
