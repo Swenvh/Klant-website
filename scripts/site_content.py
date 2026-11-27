@@ -84,7 +84,7 @@ PLACE_EXTRA = {
  'Nunspeet': 'Nunspeet ligt aan de bosrand van de Veluwe: veel vrijstaande woningen met houtwerk dat door schaduw en vocht sneller aandacht vraagt.',
  'Zwolle': 'Zwolle is de grootste stad in ons werkgebied, met alles van jaren-30-woningen in de Veerallee tot nieuwbouw in Stadshagen en bedrijfspanden op Hessenpoort.',
  'Wezep': 'Wezep ligt op een paar minuten rijden van Oldebroek; voor een kleine klus of een korte inspectie komt Stef net zo makkelijk langs als voor een hele woning.',
- 'Oldebroek': 'Oldebroek is onze thuisbasis. Hier schilderden we onder meer de receptiebalie van het <a href="/projecten/gemeente-oldebroek/">gemeentehuis</a>.',
+ 'Oldebroek': 'Oldebroek is onze thuisbasis. Hier schilderden we onder meer de receptiebalie van het <a href="/projecten/lakwerk-gemeente-oldebroek/">gemeentehuis</a>.',
  'Harderwijk': 'Harderwijk heeft een oude binnenstad met veel monumentaal houtwerk en daarbuiten ruime woonwijken en bedrijventerreinen, allebei werk dat we graag doen.',
  'Kampen': 'Kampen is een Hanzestad met een beschermd stadsgezicht; bij een pand in de binnenstad bespreken we vooraf welke kleuren en afwerkingen zijn toegestaan.',
  'Dronten': 'Dronten ligt in de open polder, waar wind en zon de westgevel extra belasten; buitenschilderwerk houdt daar baat bij een iets korter onderhoudsritme.',
