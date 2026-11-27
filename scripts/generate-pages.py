@@ -50,7 +50,7 @@ slugs=['binnenschilderwerk','buitenschilderwerk','houtrotreparatie','onderhoud-r
 # Volgorde in menu, dienstenpagina, zijbalk en voettekst (wens opdrachtgever 2026-11-23): binnen, buiten, zakelijk & VvE, onderhoud & renovatie, daarna de rest.
 ORDER=['binnenschilderwerk','buitenschilderwerk','zakelijk-vve','onderhoud-renovatie','houtrotreparatie','spuitwerk','behangwerk']
 for i,el in enumerate(cls('service')):
- services.append({'name':el.find('.//h3').text,'slug':slugs[i],'text':cls('service-content',el)[0].find('p').text,'tags':[e.text for e in cls('service-tags',el)[0]],'image':['binnenschilderwerk-gele-kamer.jpg','buitenschilderwerk-rietgedekt.jpg','onderhoud-houtrot-plamuren.jpg','woning-gevel-hoek-na.jpg','spuitwerk-trap.jpg','zakelijk-stalen-pui.jpg','behangwerk-kantoor.jpg'][i]})
+ services.append({'name':el.find('.//h3').text,'slug':slugs[i],'text':cls('service-content',el)[0].find('p').text,'tags':[e.text for e in cls('service-tags',el)[0]],'image':['binnenschilderwerk-blauwe-kamer.jpg','buitenschilderwerk-rietgedekt.jpg','onderhoud-houtrot-plamuren.jpg','woning-gevel-hoek-na.jpg','spuitwerk-trap.jpg','zakelijk-stalen-pui.jpg','behangwerk-kantoor.jpg'][i]})
 services.sort(key=lambda v:ORDER.index(v['slug']))
 nav=[('/', 'Home'),('/diensten/','Diensten'),('/projecten/','Projecten'),('/over-ons/','Over ons'),('/contact/','Contact')]
 linkmap={'#home':'/','#diensten':'/diensten/','#projecten':'/projecten/','#over':'/over-ons/','#werkwijze':'/over-ons/#werkwijze','#contact':'/contact/','#offerte':'/offerte/'}
