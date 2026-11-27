@@ -407,6 +407,11 @@ PROJECTPAGINAS=[
   'description':'Bekijk het buitenschilderwerk van Van Ommen Schilderwerken bij project Melktap in Elburg: zwarte houten geveldelen en witte kozijnen en dakranden.',
   'fotos':[
    ('melktap-1.jpg','Woning met zwarte houten topgevels, witte kozijnen en dakranden, rode bakstenen gevel en oranje pannendak, gezien vanaf de oprit'),
+   ('melktap-2.jpg','Dakkapel met hoogglans wit geschilderde kozijnen en boeidelen, met een openstaand draairaam onder de zinken goot'),
+   ('melktap-3.jpg','Uitbouw met witte kozijnen en wit geschilderde boeidelen tegen de bakstenen gevel, met de dakkapel erboven'),
+   ('melktap-4.jpg','Zwart geschilderde houten topgevel met een schuin raam, witte dakrand en twee witte draairamen in het metselwerk'),
+   ('melktap-5.jpg','Close-up van een hoogglans zwart gelakt deurkozijn naast een wit geschilderde buitenrand tegen de bakstenen gevel'),
+   ('melktap-6.jpg','Achterzijde van de woning met zwarte houten topgevels, zwarte deuren, witte dakranden en oranje pannendak boven het klinkerterras'),
   ]},
 ]
 PROJECTEN=[{'titel':pp['titel'],'plaats':pp['plaats'],'image':pp['fotos'][0][0],'alt':pp['fotos'][0][1],'href':'/projecten/'+pp['slug']+'/'} for pp in PROJECTPAGINAS]  # losse foto's zonder project zijn op 2026-11-23 weggehaald (wens opdrachtgever)
