@@ -36,7 +36,7 @@ const quoteWhatsApp=document.querySelector('#quote-whatsapp');
 if(quoteForm&&quoteWhatsApp){
  const updateWhatsApp=()=>{
   const d=new FormData(quoteForm);
-  const parts=['Hey Stef 👋, graag bespreek ik mijn schilderwerk.'];
+  const parts=['Hoi Stef 👋, graag bespreek ik mijn schilderwerk.'];
   for(const [key,label] of [['name','Naam'],['city','Woonplaats'],['service','Werkzaamheden'],['message','Mijn wensen']]){
    const value=String(d.get(key)||'').trim();if(value)parts.push(label+': '+value);
   }
