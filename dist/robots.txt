@@ -34,4 +34,4 @@ Allow: /
 User-agent: *
 Allow: /
 
-Sitemap: https://van-ommen-schilderwerken.ecomswen.chatgpt.site/sitemap.xml
+Sitemap: https://www.vanommenschilderwerken.nl/sitemap.xml

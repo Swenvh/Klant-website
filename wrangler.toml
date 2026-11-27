@@ -6,7 +6,7 @@ pages_build_output_dir = "dist"
 [[d1_databases]]
 binding = "DB"
 database_name = "van-ommen-schilderwerken"
-database_id = "VUL-IN-NA-WRANGLER-D1-CREATE"
+database_id = "8c4bf0fe-a99b-4751-8c1c-ba5e9d542a49"
 migrations_dir = "drizzle"
 
 [vars]
