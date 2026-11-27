@@ -905,3 +905,11 @@ h1{font-size:clamp(60px,6.4vw,96px)}.page-home .hero h1{font-size:clamp(60px,6vw
 .service-tile[href="/diensten/binnenschilderwerk/"] .tile-media>img{object-position:center 42%}
 @media(min-width:901px){.service-tile[href="/diensten/binnenschilderwerk/"] .tile-media>img{object-position:center 54%}}
 .dienst-band-foto:has(img[src*="binnenschilderwerk-trap-groen"]){aspect-ratio:3/4}
+
+/* Over ons: compacte contactregel boven de fotostrook */
+.page-cta-compact{padding-block:40px 34px;gap:30px}
+.page-cta-compact .eyebrow{margin:0;color:#777}
+@media(max-width:700px){.page-cta-compact{padding-block:34px 28px;gap:18px}}
+.page-cta-compact{flex-direction:column;align-items:flex-start;gap:20px;padding-block:44px 30px}
+.page-cta-compact .cta-actions{display:flex;flex-wrap:wrap;align-items:center;gap:14px 28px}
+.page-cta-compact .cta-actions{flex-direction:row}
