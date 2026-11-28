@@ -438,10 +438,10 @@ def projecten_kaarten():
   klasse='project-kaart'+(' '+p['klasse'] if p.get('klasse') else '')
   if p.get('href'):kaarten.append(f'<a class="{klasse}" href="{p["href"]}">{binnen}</a>')
   else:kaarten.append(f'<button class="{klasse}" type="button" data-photo="/assets/{p["image"]}" data-title="{escape(p["titel"])}" aria-label="{escape(p["titel"])}, vergroot de foto">{binnen}</button>')
-  if i==0:kaarten.append('<div class="projecten-intro"><h1>Projecten</h1><p>Een overzicht van schilderwerk dat Van Ommen Schilderwerken heeft uitgevoerd: binnen, buiten en behangwerk. Kijk hoe de voorbereiding eruitziet en wat het eindresultaat is.</p><p>Zelf iets laten schilderen of renoveren? Vertel wat u wilt, dan bespreekt Stef het met u.</p><div class="article-actions"><a class="button" href="/offerte/">Offerte aanvragen </a></div></div>')
+  if i==0:kaarten.append('<div class="projecten-intro"><h1>Projecten</h1><p>Een overzicht van schilderwerk dat Van Ommen Schilderwerken heeft uitgevoerd in Elburg, Nunspeet en Oldebroek: binnenschilderwerk in bedrijfspanden, buitenschilderwerk aan woningen en lakwerk. Bekijk per project de foto’s van het eindresultaat.</p><p>Zelf iets laten schilderen? Vertel wat u wilt, dan komt Stef vrijblijvend langs.</p><div class="article-actions"><a class="button" href="/offerte/">Offerte aanvragen </a></div></div>')
  return '<section class="projecten-overzicht section-pad" aria-label="Projecten"><div class="projecten-grid">'+''.join(kaarten)+'</div></section>'
 content=projecten_kaarten()+cta()
-render('/projecten/','Projecten','Bekijk echte foto’s van schilderprojecten van Van Ommen Schilderwerken, van voorbereiding tot afwerking.',content,'/projecten/',gallery=True)
+render('/projecten/','Projecten','Bekijk foto’s van schilderprojecten van Van Ommen Schilderwerken in Elburg, Nunspeet en Oldebroek: binnen- en buitenschilderwerk en lakwerk.',content,'/projecten/',gallery=True)
 for pp in PROJECTPAGINAS:
  galerij=''.join(f'<button class="project-kaart" type="button" data-photo="/assets/{img}" data-title="{escape(pp["titel"])}, foto {i+1}" aria-label="Foto {i+1} van {escape(pp["titel"].lower())}, vergroot de foto"><img src="/assets/{img}" alt="{escape(alt)}" width="1200" height="1600" loading="{"eager" if i==0 else "lazy"}"></button>' for i,(img,alt) in enumerate(pp['fotos']))
  tekst=''.join('<p>'+t+'</p>' for t in pp['tekst'])
