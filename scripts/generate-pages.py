@@ -207,16 +207,16 @@ def werkgebied():
 home=hero+'''<section class="home-services section-pad"><div class="section-heading"><div><p class="eyebrow">WAAR KUNNEN WE U MEE HELPEN?</p><h2>Onze diensten</h2></div><a class="text-link" href="/diensten/">Bekijk alle diensten</a></div>'''+cards(True)+'</section>'+HOME_INTRO+werkgebied()+featured+serial(section('werkwijze'))+cta()
 render('/','Schilder in Oldebroek en omgeving','Schildersbedrijf van Stef van Ommen in Oldebroek: binnen- en buitenschilderwerk, houtrotreparatie, spuitwerk en behangwerk in Elburg, Nunspeet en Zwolle.',home,'/',home=True)
 content=intro('Diensten','Schilderwerk dat<br>bij uw woning past.','Binnen of buiten, nieuw schilderwerk of onderhoud: kies de werkzaamheden waar u meer over wilt weten.')+'<section class="services-overview section-pad">'+cards()+'</section>'+cta()
-render('/diensten/','Schilderdiensten in Oldebroek en omgeving','Binnen- en buitenschilderwerk, houtrotreparatie, spuitwerk, behangwerk, onderhoud en renovatie. Ontdek de diensten van Van Ommen Schilderwerken.',content,'/diensten/')
+render('/diensten/','Schilderdiensten Oldebroek','Binnen- en buitenschilderwerk, houtrotreparatie, spuitwerk, behangwerk, onderhoud en renovatie. Ontdek de diensten van Van Ommen Schilderwerken.',content,'/diensten/')
 # Titel en meta description per dienst: zoekwoord + regio vooraan, merknaam achteraan.
 SEO_DIENST={
- 'binnenschilderwerk':('Binnenschilderwerk Oldebroek, Elburg en Zwolle','Schilder voor binnenschilderwerk in Oldebroek, Elburg, Nunspeet en Zwolle: muren, plafonds, deuren, kozijnen en trappen strak geschilderd. Gratis offerte.'),
- 'buitenschilderwerk':('Buitenschilderwerk Oldebroek, Elburg en Zwolle','Schilder voor buitenschilderwerk in Oldebroek, Elburg, Nunspeet en Zwolle: kozijnen, deuren en gevelhout beschermd tegen weer en wind. Gratis offerte.'),
- 'houtrotreparatie':('Houtrotreparatie Oldebroek, Elburg en Zwolle','Houtrot in kozijnen of deuren? Van Ommen Schilderwerken herstelt het hout en schildert het opnieuw, in Oldebroek, Elburg, Nunspeet, Zwolle en Wezep.'),
- 'onderhoud-renovatie':('Schilderwerk onderhoud en renovatie Oldebroek','Periodiek onderhoud van uw schilderwerk en schilderwerk bij renovatie, voor woningen en bedrijfspanden in Oldebroek, Elburg, Nunspeet, Zwolle en Wezep.'),
- 'spuitwerk':('Spuitwerk deuren, kozijnen en keukens Oldebroek','Spuitwerk zonder kwaststrepen voor deuren, kozijnen, trappen en keukenfronten, in Oldebroek, Elburg, Nunspeet, Zwolle en Wezep. Gratis offerte.'),
- 'behangwerk':('Behangwerk Oldebroek, Elburg en Zwolle','Behanger en schilder in één: oud behang verwijderen, wanden glad maken en nieuw behang of fotobehang aanbrengen, in Oldebroek, Elburg, Nunspeet en Zwolle.'),
- 'zakelijk-vve':('Zakelijk schilderwerk en onderhoudsplan VvE Oldebroek','Schilder voor bedrijfspanden en VvE’s in Oldebroek, Elburg, Nunspeet en Zwolle, met een onderhoudsplan zodat u weet welk schilderwerk wanneer nodig is.'),
+ 'binnenschilderwerk':('Binnenschilderwerk Oldebroek','Schilder voor binnenschilderwerk in Oldebroek, Elburg, Nunspeet en Zwolle: muren, plafonds, deuren, kozijnen en trappen strak geschilderd. Gratis offerte.'),
+ 'buitenschilderwerk':('Buitenschilderwerk Oldebroek','Schilder voor buitenschilderwerk in Oldebroek, Elburg, Nunspeet en Zwolle: kozijnen, deuren en gevelhout beschermd tegen weer en wind. Gratis offerte.'),
+ 'houtrotreparatie':('Houtrotreparatie Oldebroek','Houtrot in kozijnen of deuren? Van Ommen Schilderwerken herstelt het hout en schildert het opnieuw, in Oldebroek, Elburg, Nunspeet, Zwolle en Wezep.'),
+ 'onderhoud-renovatie':('Onderhoud en renovatie Oldebroek','Periodiek onderhoud van uw schilderwerk en schilderwerk bij renovatie, voor woningen en bedrijfspanden in Oldebroek, Elburg, Nunspeet, Zwolle en Wezep.'),
+ 'spuitwerk':('Spuitwerk kozijnen en keukens','Spuitwerk zonder kwaststrepen voor deuren, kozijnen, trappen en keukenfronten, in Oldebroek, Elburg, Nunspeet, Zwolle en Wezep. Gratis offerte.'),
+ 'behangwerk':('Behangwerk Oldebroek en Elburg','Behanger en schilder in één: oud behang verwijderen, wanden glad maken en nieuw behang of fotobehang aanbrengen, in Oldebroek, Elburg, Nunspeet en Zwolle.'),
+ 'zakelijk-vve':('Zakelijk schilderwerk en VvE','Schilder voor bedrijfspanden en VvE’s in Oldebroek, Elburg, Nunspeet en Zwolle, met een onderhoudsplan zodat u weet welk schilderwerk wanneer nodig is.'),
 }
 # Dienstpagina's met fotohero en afwisselende foto- en tekstbanden (wens opdrachtgever 2026-11-23). Alleen bevestigde sterke punten; geen ervaringsjaren of certificaten verzinnen.
 STERKE_PUNTEN=['Erkend leerbedrijf (SBB)','Gratis & vrijblijvende offerte','Eén aanspreekpunt van offerte tot oplevering','Voor woningen, bedrijfspanden en VvE’s','Onderhoudsplan voor bedrijfspanden en VvE’s','Werkgebied Noord-Veluwe en regio Zwolle']
@@ -355,7 +355,7 @@ PROJECTPAGINAS=[
   'intro':'Een particuliere woning in Nunspeet met een nieuwe buitenkant: de gevel strak wit, de kozijnen, het gevelhout en de plint donker. Bekijk het verschil tussen voor en na.',
   'kop':'',
   'tekst':[],
-  'description':'Bekijk hoe een particuliere woning in Nunspeet een strakke witte gevel met donkere kozijnen kreeg. Voor-en-nafoto’s van buitenschilderwerk door Van Ommen Schilderwerken.',
+  'description':'Een woning in Nunspeet kreeg een strakke witte gevel met donkere kozijnen. Voor-en-nafoto’s van buitenschilderwerk door Van Ommen Schilderwerken.',
   'voorna':(('woning-gevel-voor.jpg','Hoek van de woning vóór het werk: bakstenen gevel, donkere kozijnen en uitbouw met verticale gevelbekleding'),('woning-gevel-hoek-na.jpg','Dezelfde hoek na het werk: strak witte gevel met donkere kozijnen, dakranden en gevelbekleding')),
   'fotos':[
    ('woning-gevel-na.jpg','Voorgevel van de woning na het werk: strak wit gestucte gevel, donkere plint, donkere kozijnen en houten voordeur'),
